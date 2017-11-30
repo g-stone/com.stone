@@ -1,0 +1,47 @@
+@CHARSET "utf-8";
+
+.wigets {
+	width: 98%; 
+	height: auto;
+	margin: 0 auto;
+	padding: 0; }
+.wigets .menuwrap {
+	width: 20%;
+	float: left;
+	height: 100px;
+	background-color: RGB(255, 255, 255); }
+.wigets .menuwrap .toolbars {
+	width: 98%;
+	float: left;
+	height: 90px;
+	background-color: RGB(255, 255, 255); }
+.wigets .list {
+	width: 80%;
+	height: 100px;
+	float: left;
+	background-color: RGB(255, 255, 255); }
+.wigets .list .wrapgoods {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+.wigets .list .wrapgoods .goods{
+	width: 25%;
+	display: block;
+	height: auto;
+	float: left;
+	overflow: hidden;
+}
+.wigets .list .wrapgoods .goods img{
+	max-width: 100%;
+	display: block;
+}
+.wigets .list .wrappager {
+	
+}
+.footer {
+	margin: 10px auto;
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 98%; }

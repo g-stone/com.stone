@@ -1,0 +1,73 @@
+@CHARSET "utf-8";
+
+/* 本例子css */
+.header {
+	height: 100px; 
+	margin: 0 auto; 
+	width: 98%; 
+	padding: 0 0; }
+.header .logo {
+	width:20%; 
+	height:80px; 
+	float:left; 
+	background-image: url(../images/logo.png); 
+	background-color: white; 
+	background-repeat: no-repeat; 
+	background-position: 4% 2%; 
+	background-attachment: fixed; }
+.header .menu{
+	width:80%; 
+	float:right; 
+	margin-top:46px; }
+.clearfix:after {
+	content:"."; 
+	display:block; 
+	height:0; 
+	clear:both; 
+	visibility:hidden; }
+.nav {
+	padding:0 20px; 
+	height:34px; 
+	line-height:34px; 
+	background:#39A4DC; 
+	position:relative; 
+	z-index:1; }
+.nav a {
+	color:#fff; }
+.nav .nLi {
+	float:left; 
+	position:relative; 
+	display:inline; 
+	width: 14%; }
+.nav .nLi h3 {
+	float:left; 
+	width: 100%; }
+.nav .nLi h3 a {
+	display:block; 
+	padding:0 20px; 
+	font-size:14px; 
+	font-weight:bold; }
+.nav .sub {
+	display:none; 
+	width:100%; 
+	left:0; 
+	top:34px; 
+	position:absolute; 
+	background:#8080ff; 
+	line-height:26px; 
+	padding:5px 0; }
+.nav .sub li {
+	zoom:1; 
+	width: 100%; }
+.nav .sub a {
+	display:block; 
+	padding:0 10px; }
+.nav .sub a:hover {
+	text-decoration:none; 
+	background:#39A4DC; 
+	color:#fff; }
+.nav .on h3 a {
+	background:#8080ff; 
+	color:#fff; }
+.nav .on h3 a:hover {
+	text-decoration:none; }

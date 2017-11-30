@@ -1,0 +1,45 @@
+@CHARSET "utf-8";
+
+.wigets {
+	width: 98%; 
+	height: auto;
+	margin: 0 auto;
+	padding: 0; }
+.wigets .menuwrap {
+	width: 20%;
+	float: left;
+	height: 100px;
+	background-color:RGB(255, 255, 255); }
+.wigets .menuwrap .toolbars {
+	width: 98%;
+	float: left;
+	height: 90px;
+	background-color:RGB(255, 255, 255); }
+.wigets .detail {
+	width: 80%;
+	height: 100px;
+	float: left;
+	background-color:RGB(255, 255, 255); }
+.wigets .detail p.title {
+	text-align: left;
+	margin: 8px 12px; }
+.wigets .detail .line {
+	width: 98%;
+	display: block;
+	margin: 8px auto;
+	height: 2px;
+	background-color: RGB(125, 65, 45); }
+.wigets .detail .contexts {
+	width: 98%;
+	display: block;
+	margin: 0 auto;
+	height: auto;
+	background-color: RGB(255, 255, 255);
+	text-indent: 24px;
+	text-align: left; }
+.footer {
+	margin: 10px auto;
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 98%; }
