@@ -1,0 +1,177 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.stone.framework</groupId>
+	<artifactId>com.stone</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+		<maven-war-plugin.version>2.2</maven-war-plugin.version>
+		<maven-compile.version>2.3.2</maven-compile.version>
+		<proguard-version>5.3.3</proguard-version>
+		<maven-proguard.version>2.0.14</maven-proguard.version>
+		<project.source-plugin.version>3.0.1</project.source-plugin.version>
+		<project.assembly-plugin.version>3.0.0</project.assembly-plugin.version>
+		<project.compressor-plugin.version>1.5.1</project.compressor-plugin.version>
+		
+		<!-- test -->
+		<junit.version>4.11</junit.version>
+		
+		<servlet-api.version>3.0.1</servlet-api.version>
+		<jstl.version>1.2</jstl.version>
+		<spring.version>4.3.11.RELEASE</spring.version>
+		<aspectj.version>1.8.9</aspectj.version>
+		<cglib.version>3.1</cglib.version>
+		<asm.version>3.3.1</asm.version>
+		<jackson.version>2.6.3</jackson.version>
+		<org.slf4j.version>1.7.7</org.slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<httpcomponents.version>4.3.5</httpcomponents.version>
+		
+		<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
+		<jdbc.driver.version>10.2.0.4.0</jdbc.driver.version>
+		<hibernate.version>5.2.11.Final</hibernate.version>
+		<hibernate.jpa.2.1.api.version>1.0.0.Final</hibernate.jpa.2.1.api.version>
+		<p6spy.version>2.1.2</p6spy.version>
+		<c3p0.version>0.9.5.2</c3p0.version>
+	</properties>
+	
+	<modules>
+		<module>com.stone.core</module>
+		<module>com.stone.parent</module>
+		<module>com.stone.test</module>
+		<module>com.jmei</module>
+	</modules>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<!--进行js与css 压缩混淆 http://davidb.github.io/yuicompressor-maven-plugin -->
+				<!-- 配置说明，开发过程中屏蔽 http://alchim31.free.fr/mvnsites/yuicompressor-maven-plugin/compress-mojo.html -->
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<version>${project.compressor-plugin.version}</version>
+				<executions>
+					<execution>
+						<!-- 绑定到生命周期阶段 -->
+						<phase>package</phase>
+						<goals>
+							<!-- 压缩 -->
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- 读取js,css文件采用UTF-8编码 -->
+					<encoding>UTF-8</encoding>
+					<!-- 不显示js可能的错误 -->
+					<jswarn>false</jswarn>
+					<!-- 若存在已压缩的文件，会先对比源文件是否有改动 有改动便压缩，无改动就不压缩 -->
+					<force>true</force>
+					<!-- 在指定的列号后插入新行 -->
+					<linebreakpos>-1</linebreakpos>
+					<!-- 只是缩小不要混淆 -->
+					<nomunge>false</nomunge>
+					<!-- 压缩后保存文件有后缀:false,无后缀:true -->
+					<nosuffix>true</nosuffix>
+					<!-- 压缩后的后缀名，基于nosuffix -->
+					<suffix>-min</suffix>
+					<!-- 是否保留必要的";"分号 -->
+					<preserveAllSemiColons>true</preserveAllSemiColons>
+					<!-- 压缩之前先执行聚合文件操作 -->
+					<preProcessAggregates>true</preProcessAggregates>
+					<!-- 源目录，即需压缩的根目录 -->
+					<sourceDirectory>**/META-INF/resources/static</sourceDirectory>
+					<!-- 是否显示压缩比例 -->
+					<statistics>true</statistics>
+					<!-- 压缩js和css文件 -->
+					<includes>
+						<include>**/*.js</include>
+						<include>**/*.css</include>
+					</includes>
+					<!-- 以下目录和文件不会被压缩，打包时删除**/** -->
+					<excludes>
+						<exclude>**/**</exclude>
+						<exclude>**/*.min.js</exclude>
+						<exclude>**/*.extend.js</exclude>
+						<exclude>**/*.min.css</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${project.assembly-plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.allen.capturewebdata.Main</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compile.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<!-- 生成源码 jar 包的插件 source:jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${project.source-plugin.version}</version>
+				<configuration>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+<!--  
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<url>http://172.16.30.111/nexus/repository/maven-public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>platform-releases</id>
+			<name>platform-releases</name>
+			<url>http://172.16.30.111/nexus/repository/platform-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>platform-snapshots</id>
+			<name>platform-snapshots</name>
+			<url>http://172.16.30.111/nexus/repository/platform-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+-->
+</project>
