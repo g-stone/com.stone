@@ -14,5 +14,6 @@
 		<module>web</module>
 		<module>business</module>
 		<module>manager</module>
+		<module>models</module>
 	</modules>
 </project>
