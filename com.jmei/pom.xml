@@ -13,10 +13,6 @@
 	<modules>
 		<module>web</module>
 		<module>business</module>
-	<!--
-		<module>com.stone.core</module>
-		<module>com.stone.parent</module>
-		<module>com.stone.test</module>
-	-->
+		<module>manager</module>
 	</modules>
 </project>
