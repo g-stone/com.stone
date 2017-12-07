@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jmei.business.entity.Article;
-import com.jmei.business.entity.ArticleCategory;
-import com.jmei.business.entity.Case;
-import com.jmei.business.entity.CaseCategory;
-import com.jmei.business.entity.CaseImages;
-import com.jmei.business.entity.SiteImages;
-import com.jmei.business.model.ResultObject;
 import com.jmei.business.service.ISiteIndexService;
+import com.jmei.models.entity.Article;
+import com.jmei.models.entity.ArticleCategory;
+import com.jmei.models.entity.Case;
+import com.jmei.models.entity.CaseCategory;
+import com.jmei.models.entity.CaseImages;
+import com.jmei.models.entity.SiteImages;
+import com.jmei.models.model.ResultObject;
 import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageSupport;
 
