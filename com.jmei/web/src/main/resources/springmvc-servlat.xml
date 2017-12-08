@@ -14,6 +14,9 @@
 	<!-- 对web包中的所有类进行扫描,以完成Bean创建和自动依赖注入的功能 -->
 	<import resource="classpath*:spring-mvc.xml"/>
 	
+	<!-- spring mvc对静态资源的访问 -->
+	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/" />
+	
 	<!-- 默认的注解映射的支持 -->
 	<mvc:annotation-driven >
 		<mvc:message-converters>

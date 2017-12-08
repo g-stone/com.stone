@@ -38,14 +38,14 @@ public class ConverteUtils {
 	private static ObjectMapper mapper;
 	private static XmlMapper xmlMapper;
 	private static Logger logger;
-
+	
 	static {
 		mapper = new ObjectMapper();
 		xmlMapper = new XmlMapper();
 		logger = Logger.getLogger(ConverteUtils.class);
 		mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 	}
-
+	
 	/**
 	 * 功能说明：Jackson转换为MAP JsonConverter.parseToMap();
 	 * 
@@ -56,11 +56,11 @@ public class ConverteUtils {
 	 */
 	public static Map<String, Object> toMap(String json) {
 		Map<String, Object> tmpMap = new HashMap<String, Object>();
-
-		if (json == null || json.trim().equals("")) {
+		
+		if (!StringUtils.hasText(json) || !json.trim().startsWith("{") || !json.trim().startsWith("[")) {
 			return tmpMap;
 		}
-
+		
 		try {
 			JsonNode root = mapper.readValue(json, JsonNode.class);
 			tmpMap = parseJson(root);
@@ -134,6 +134,12 @@ public class ConverteUtils {
 	 * @return
 	 */
 	public static Map<String, Object> xmlToMap(String xmlString) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(!StringUtils.hasText(xmlString) || xmlString.trim().startsWith("<")){
+			return map;
+		}
+			
 		StringWriter writer = new StringWriter();
 		try {
 			JsonParser jsonParser = xmlMapper.getFactory().createParser(xmlString);
@@ -141,13 +147,13 @@ public class ConverteUtils {
 			while (jsonParser.nextToken() != null) {
 				generator.copyCurrentEvent(jsonParser);
 			}
-
+			
 			jsonParser.close();
 			generator.close();
 		} catch (Exception e) {
 			logger.error("XML转JSON失败--->" + e.getMessage(), e);
 		}
-
+		
 		return toMap(writer.toString());
 	}
 	/**
