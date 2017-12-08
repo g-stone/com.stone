@@ -16,6 +16,16 @@
 			<artifactId>com.jmei.business</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
+			<artifactId>ui.common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
+			<artifactId>ui.ext</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
