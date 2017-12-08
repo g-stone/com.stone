@@ -57,7 +57,12 @@ public class ConverteUtils {
 	public static Map<String, Object> toMap(String json) {
 		Map<String, Object> tmpMap = new HashMap<String, Object>();
 		
-		if (!StringUtils.hasText(json) || !json.trim().startsWith("{") || !json.trim().startsWith("[")) {
+		if (!StringUtils.hasText(json)) {
+			return tmpMap;
+		}
+		
+		if(!json.trim().startsWith("{") || !json.trim().startsWith("[")){
+			logger.error("/**********非法的JSON格式字符串*************************/\n" + json);
 			return tmpMap;
 		}
 		
@@ -136,7 +141,12 @@ public class ConverteUtils {
 	public static Map<String, Object> xmlToMap(String xmlString) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		if(!StringUtils.hasText(xmlString) || xmlString.trim().startsWith("<")){
+		if(!StringUtils.hasText(xmlString)){
+			return map;
+		}
+		
+		if(xmlString.trim().startsWith("<")){
+			logger.error("/**********非法的XML格式字符串*************************/\n" + xmlString);
 			return map;
 		}
 			
@@ -362,9 +372,23 @@ public class ConverteUtils {
 
 		return xmlString;
 	}
-
+	
 	public static String xmlReturn(String return_code, String return_msg) {
 		return "<xml><return_code><![CDATA[" + return_code + "]]></return_code><return_msg><![CDATA[" + return_msg
 				+ "]]></return_msg></xml>";
+	}
+	
+	public static void main(String[] args){
+		String bbc = "{0000000";
+		
+		System.out.println(bbc.startsWith("{"));
+		
+		bbc = "[{0000";
+		
+		System.out.println(bbc.startsWith("["));
+		
+		bbc = "<ssss";
+		
+		System.out.println(bbc.startsWith("<"));
 	}
 }
