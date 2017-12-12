@@ -39,12 +39,13 @@
 				<p class="title">${case.caseName}</p>
 				<div class="line"></div>
 				<div class="contexts">
-					<p>${case.desc}</p>
+					<p>${case.shortDesc}</p>
 					<c:if test="${caseImages != null || not empty caseImages}">
 						<c:forEach var="image" items="${caseImages}" varStatus="stu">
 						<img src="${ctpath}/${image.imageUrl}">
 						</c:forEach>
 					</c:if>
+					<p>${case.caseDesc}</p>
 				</div>
 			</div>
 		</div>

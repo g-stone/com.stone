@@ -38,9 +38,7 @@
 					</dl>
 				</div>
 			</div>
-			<div class="explain">
-				说明内容
-			</div>
+			<div class="explain">${article.contents}</div>
 		</div>
 		
 		<div class="clear"></div>

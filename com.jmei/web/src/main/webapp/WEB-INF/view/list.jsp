@@ -42,7 +42,9 @@
 					<c:otherwise>
 						<c:forEach var="case" items="${cases}" varStatus="stu">
 						<div class="goods">
-							<img src="${ctpath}/${case.caseOptionImage}">
+							<a href="${ctpath}/case/detail?caseId=${case.caseId}">
+								<img src="${ctpath}/${case.caseOptionImage}">
+							</a>
 						</div>
 						</c:forEach>
 					</c:otherwise>

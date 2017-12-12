@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,10 +71,14 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping(value = "/case/list")
-	public ModelAndView list(Model model){
+	public ModelAndView list(Model model, String id){
 		ModelAndView view = new ModelAndView();
 		
-		List<Case> cases = siteIndexService.queryByMappingProperty(null, Case.class);
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		if(StringUtils.hasText(id)){
+			parameter.put("caseCategoryId_0", id);
+		}
+		List<Case> cases = siteIndexService.queryByMappingProperty(parameter, Case.class);
 		view.addObject("cases", cases);
 		
 		view.setViewName("list");

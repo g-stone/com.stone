@@ -37,7 +37,7 @@ jmei.menuindex.prototype = {
 						console.log(val);
 						ele.forEach(function(el, ex, ed){
 							console.log(el);
-							$(el.container).append($('<' + el.ele + '><a href="#" data-role="caseCategoryLoading" data-case-category="' + val.caseCategoryId + '">' + val.categoryName + '</a></' + el.ele + '>'))
+							$(el.container).append($('<' + el.ele + '><a href="' + jmei.webpath + '/case/list?id=' + val.caseCategoryId + '" data-role="caseCategoryLoading" data-case-category="' + val.caseCategoryId + '">' + val.categoryName + '</a></' + el.ele + '>'))
 						});
 					});
 				}
