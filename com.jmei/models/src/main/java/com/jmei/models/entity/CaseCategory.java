@@ -19,7 +19,7 @@ public class CaseCategory extends OptionsExts{
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "case_category_id")
+	@Column(name = "case_category_id", columnDefinition = "varchar(40) comment '案例分类表主键ID'")
 	public String getCaseCategoryId() {
 		return caseCategoryId;
 	}
@@ -27,7 +27,7 @@ public class CaseCategory extends OptionsExts{
 		this.caseCategoryId = caseCategoryId;
 	}
 	
-	@Column(name = "category_name")
+	@Column(name = "category_name", columnDefinition = "varchar(256) comment '案例分类名称'")
 	public String getCategoryName() {
 		return categoryName;
 	}

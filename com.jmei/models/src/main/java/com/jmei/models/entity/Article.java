@@ -21,7 +21,7 @@ public class Article extends OptionsExts{
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "article_id")
+	@Column(name = "article_id", columnDefinition = "varchar(40) comment '文章表主键ID'")
 	public String getArticleId() {
 		return articleId;
 	}
@@ -29,7 +29,7 @@ public class Article extends OptionsExts{
 		this.articleId = articleId;
 	}
 	
-	@Column(name = "article_category_id")
+	@Column(name = "article_category_id", columnDefinition = "varchar(40) comment '文章所属栏目分类表主键ID'")
 	public String getArticleCategoryId() {
 		return articleCategoryId;
 	}
@@ -37,7 +37,7 @@ public class Article extends OptionsExts{
 		this.articleCategoryId = articleCategoryId;
 	}
 	
-	@Column(name = "article_title")
+	@Column(name = "article_title", columnDefinition = "varchar(256) comment '文章标题'")
 	public String getArticleTitle() {
 		return articleTitle;
 	}
@@ -45,7 +45,7 @@ public class Article extends OptionsExts{
 		this.articleTitle = articleTitle;
 	}
 	
-	@Column(name = "contents")
+	@Column(name = "contents", columnDefinition = "longtext comment '文章内容'")
 	public String getContents() {
 		return contents;
 	}

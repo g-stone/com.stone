@@ -19,14 +19,14 @@ public class IndustryCategory extends OptionsExts{
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "industry_category_id")
+	@Column(name = "industry_category_id", columnDefinition = "varchar(40) comment '行业分类表主键ID'")
 	public String getIndustryCategoryId() {
 		return industryCategoryId;
 	}
 	public void setIndustryCategoryId(String industryCategoryId) {
 		this.industryCategoryId = industryCategoryId;
 	}
-	@Column(name = "category_name")
+	@Column(name = "category_name", columnDefinition = "varchar(128) comment '行业分类名'")
 	public String getCategoryName() {
 		return categoryName;
 	}

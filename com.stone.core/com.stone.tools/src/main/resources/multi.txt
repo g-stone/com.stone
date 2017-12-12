@@ -1,0 +1,70 @@
+<bean id="viewResolver" class="com.jeedev.common.web.springmvc.view.JeeDevViewResolver">
+        <property name="defaultViewResolver" ref="beanNameViewResolver"/>
+        <property name="viewResolverMap">
+            <map>
+                <entry>
+                    <key>
+                        <set>
+                            <value>.jsp</value>
+                        </set>
+                    </key>
+                    <ref bean="jspViewResolver"/>
+                </entry>
+                <entry>
+                    <key>
+                        <set>
+                            <value>.vm</value>
+                            <value>.htm</value>
+                        </set>
+                    </key>
+                    <ref bean="velocityViewResolver"/>
+                </entry>
+                <entry>
+                    <key><value>.ftl</value></key>
+                    <ref bean="freeMarkerViewResolver"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    
+    <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+    
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--<property name="suffix" value=".jsp"/>-->
+    </bean>
+    
+    <!--  Velocity ViewResolver Configuration -->
+    <bean id="velocityViewResolver" class = "org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+         <property name="order" value="0" />
+         <property name="contentType" value="text/html;charset=UTF-8" />
+         <property name="requestContextAttribute" value="req"/>
+    </bean>
+
+    <!-- Velocity Configuration -->     
+    <bean id="velocityConfig" class = "org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+         <property name="configLocation" value="/WEB-INF/velocity.properties"/>
+         <property name="resourceLoaderPath" value="/" />
+    </bean>
+    
+    <!--  FreeMarker ViewResolver Configuration -->
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+        <property name="order" value="0" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>  
+    </bean> 
+    
+    
+    <!-- FreeMarker Configuration -->     
+    <bean id="freemarkerConfig"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+       <property name="configLocation" value="/WEB-INF/freemarker.properties"/>
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>  
+         <property name="freemarkerVariables">
+             <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape"/>
+            </map>
+         </property>
+    </bean>   
+    
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>

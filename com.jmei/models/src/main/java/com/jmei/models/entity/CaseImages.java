@@ -20,7 +20,7 @@ public class CaseImages extends OptionsExts{
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "case_image_id")
+	@Column(name = "case_image_id", columnDefinition = "varchar(40) comment '案例展示图片表主键ID'")
 	public String getCaseImageId() {
 		return caseImageId;
 	}
@@ -28,7 +28,7 @@ public class CaseImages extends OptionsExts{
 		this.caseImageId = caseImageId;
 	}
 	
-	@Column(name = "case_id")
+	@Column(name = "case_id", columnDefinition = "varchar(40) comment '案例ID'")
 	public String getCaseId() {
 		return caseId;
 	}
@@ -36,7 +36,7 @@ public class CaseImages extends OptionsExts{
 		this.caseId = caseId;
 	}
 	
-	@Column(name = "image_url")
+	@Column(name = "image_url", columnDefinition = "varchar(256) comment '图片路径'")
 	public String getImageUrl() {
 		return imageUrl;
 	}

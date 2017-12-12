@@ -20,7 +20,7 @@ public class SiteImages extends OptionsExts{
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "image_id")
+	@Column(name = "image_id", columnDefinition = "varchar(40) comment '图片表主键ID'")
 	public String getImageId() {
 		return imageId;
 	}
@@ -28,7 +28,7 @@ public class SiteImages extends OptionsExts{
 		this.imageId = imageId;
 	}
 	
-	@Column(name = "image_type")
+	@Column(name = "image_type", columnDefinition = "int comment '图片分类'")
 	public Integer getImageType() {
 		return imageType;
 	}
@@ -36,7 +36,7 @@ public class SiteImages extends OptionsExts{
 		this.imageType = imageType;
 	}
 	
-	@Column(name = "image_url")
+	@Column(name = "image_url", columnDefinition = "varchar(256) comment '图片地址'")
 	public String getImageUrl() {
 		return imageUrl;
 	}

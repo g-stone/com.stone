@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			 http://www.springframework.org/schema/context
+			 http://www.springframework.org/schema/context/spring-context-3.2.xsd
+			 http://www.springframework.org/schema/aop 
+			 http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+			 http://www.springframework.org/schema/tx 
+			 http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+			 http://www.springframework.org/schema/task 
+			 http://www.springframework.org/schema/task/spring-task-3.2.xsd ">
+	
+	<context:annotation-config />
+	<!-- 对web包中的所有类进行扫描,以完成Bean创建和自动依赖注入的功能 -->
+	
+	<import resource="classpath*:spring-service.xml"/>
+	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	<!-- 任务调度器 
+	<task:scheduler id="scheduler" pool-size="10"/>
+	-->
+	<!-- 任务执行器 
+	<task:executor id="executor" pool-size="10"/>
+	-->
+	<!--开启注解调度支持 @Async @Scheduled
+	<task:annotation-driven executor="executor" scheduler="scheduler" proxy-target-class="true"/>
+	-->
+	
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:config.properties</value>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置数据源 使用的是Druid数据源 -->
+	<bean name="dataSourceRaw" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="url" value="${h2.jdbc.url}" />
+		<property name="username" value="${h2.jdbc.username}" />
+		<property name="password" value="${h2.jdbc.password}" />
+
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${h2.jdbc.initialSize}" />
+		<!-- 连接池最大使用连接数量 -->
+		<property name="maxActive" value="${h2.jdbc.maxActive}" />
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${h2.jdbc.minIdle}" />
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${h2.jdbc.maxWait}" />
+		<!-- 是否缓存preparedStatement -->
+		<property name="poolPreparedStatements" value="${h2.jdbc.poolPreparedStatements}" />
+		<!-- 要启用PSCache，必须配置大于0 -->
+		<property name="maxOpenPreparedStatements" value="${h2.jdbc.maxOpenPreparedStatements}" />
+		<!-- 用来检测有效sql -->
+		<property name="validationQuery" value="${h2.jdbc.validationQuery}" />
+		<!-- 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能 -->
+		<property name="testOnBorrow" value="${h2.jdbc.testOnBorrow}" />
+		<!-- 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能 -->
+		<property name="testOnReturn" value="${h2.jdbc.testOnReturn}" />
+		<!--申请连接的时候检测,建议配置为true，不影响性能，并且保证安全性 -->
+		<property name="testWhileIdle" value="${h2.jdbc.testWhileIdle}" />
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="${h2.jdbc.timeBetweenEvictionRunsMillis}" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="${h2.jdbc.minEvictableIdleTimeMillis}" />
+		<!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandoned" value="${h2.jdbc.removeAbandoned}" />
+		<!-- 1800秒，也就是30分钟 -->
+		<property name="removeAbandonedTimeout" value="${h2.jdbc.removeAbandonedTimeout}" />
+		<!-- 关闭abanded连接时输出错误日志 -->
+		<property name="logAbandoned" value="${h2.jdbc.logAbandoned}" />
+		<!-- 监控数据库 -->
+		<property name="filters" value="${h2.jdbc.filters}" />
+	</bean>
+	
+	<bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource">
+		<constructor-arg ref="dataSourceRaw" />
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.stone.*.entity</value>
+				<value>com.jmei.*.entity</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${h2.hibernate.dialect}</prop> 
+				<prop key="hibernate.show_sql">${h2.hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${h2.hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${h2.hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
+		<property name = "dataSource" ref="dataSource"/> 
+	</bean>
+	
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource"><ref bean="dataSource"/></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
+	<aop:config>
+		<aop:pointcut id="baseService" expression="execution(public * com.stone.*.service..*.*(..))" />
+		<aop:pointcut id="extService" expression="execution(public * com.jmei.*.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="baseService" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="extService" />
+	</aop:config>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/> 
+			<tx:method name="*" read-only="true" rollback-for="com.springTest.util.DaoException"/>
+		</tx:attributes>
+	</tx:advice>
+</beans>
