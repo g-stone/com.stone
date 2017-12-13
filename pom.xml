@@ -45,6 +45,7 @@
 		<module>com.stone.core</module>
 		<module>com.stone.parent</module>
 		<module>com.stone.test</module>
+		<module>com.work</module>
 		<module>com.jmei</module>
 	</modules>
 	

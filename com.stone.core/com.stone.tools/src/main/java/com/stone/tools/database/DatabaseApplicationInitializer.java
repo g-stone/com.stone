@@ -18,6 +18,10 @@ import org.springframework.web.WebApplicationInitializer;
 
 import com.stone.tools.database.h2.H2Bootstart;
 
+/**
+ * H2数据库初始化
+ * @author dba
+ */
 public class DatabaseApplicationInitializer implements WebApplicationInitializer {
 	private static Logger logger = LoggerFactory.getLogger(DatabaseApplicationInitializer.class);
 	public static H2Bootstart bootstrap;

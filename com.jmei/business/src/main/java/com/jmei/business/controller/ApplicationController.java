@@ -26,7 +26,11 @@ import com.stone.tools.jdbc.PageSupport;
 
 @RestController("applicationController")
 public class ApplicationController {
-	
+	/**
+	 * 门户首页
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/index")
 	public ModelAndView site(Model model){
 		ModelAndView view = new ModelAndView();
@@ -41,6 +45,12 @@ public class ApplicationController {
 		return view;
 	}
 	
+	/**
+	 * AJAX获取案例分类列表
+	 * @param model
+	 * @return
+	 */
+	@ResponseBody
 	@RequestMapping(value = "/case/category")
 	public ResultObject caseCategory(Model model){
 		ResultObject result = new ResultObject();
@@ -57,6 +67,12 @@ public class ApplicationController {
 		return result;
 	}
 	
+	/**
+	 * 案例详细
+	 * @param model
+	 * @param caseId
+	 * @return
+	 */
 	@RequestMapping(value = "/case/detail")
 	public ModelAndView detail(Model model, String caseId){
 		ModelAndView view = new ModelAndView();
@@ -70,6 +86,12 @@ public class ApplicationController {
 		return view;
 	}
 	
+	/**
+	 * 案例列表
+	 * @param model
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/case/list")
 	public ModelAndView list(Model model, String id){
 		ModelAndView view = new ModelAndView();
@@ -85,6 +107,13 @@ public class ApplicationController {
 		return view;
 	}
 	
+	/**
+	 * 服务、动态、联系我们、招聘
+	 * @param model
+	 * @param id
+	 * @param vi
+	 * @return
+	 */
 	@RequestMapping(value = {"/brief", "/service", "/trends", "/recruit", "/contact"})
 	public ModelAndView siteRelative(Model model, String id, Integer vi){
 		ModelAndView view = new ModelAndView();
@@ -102,6 +131,10 @@ public class ApplicationController {
 		return view;
 	}
 	
+	/**
+	 * 案例分类查询
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/case/page")
 	public ResultObject pageCase(){
