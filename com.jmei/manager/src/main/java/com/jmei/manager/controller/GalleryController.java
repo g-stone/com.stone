@@ -1,5 +1,5 @@
 package com.jmei.manager.controller;
 
-public class JC {
+public class GalleryController {
 
 }
