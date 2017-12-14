@@ -27,7 +27,7 @@ public class DatabaseApplicationInitializer implements WebApplicationInitializer
 	public static H2Bootstart bootstrap;
 	private static String init = "jmei.sql";
 	private boolean isExecuteDrop = false;
-	private boolean isExecuteInit = true;
+	private boolean isExecuteInit = false;
 	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {

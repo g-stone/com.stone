@@ -10,9 +10,9 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
-public class MultiViewResolver implements ViewResolver {
+public class MultiResourceViewResolver implements ViewResolver {
     
-    private static Log logger = LogFactory.getLog(MultiViewResolver.class);
+    private static Log logger = LogFactory.getLog(MultiResourceViewResolver.class);
 
     public View resolveViewName(String viewName, Locale locale) throws Exception {
        for(Map.Entry<Set<String>, ViewResolver> map : viewResolverMap.entrySet()){

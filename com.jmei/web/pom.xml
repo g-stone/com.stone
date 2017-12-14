@@ -18,6 +18,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.stone.framework</groupId>
+			<artifactId>com.jmei.manager</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
 			<artifactId>ui.common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
