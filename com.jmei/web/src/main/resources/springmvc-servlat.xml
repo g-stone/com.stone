@@ -17,6 +17,13 @@
 	<!-- spring mvc对静态资源的访问 -->
 	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/" />
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/spring/**"/>
+			<bean class="com.stone.tools.view.interceptor.ViewInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 	<!-- 默认的注解映射的支持 -->
 	<mvc:annotation-driven >
 		<mvc:message-converters>

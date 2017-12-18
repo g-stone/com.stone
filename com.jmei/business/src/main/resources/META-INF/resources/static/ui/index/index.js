@@ -19,13 +19,9 @@ jmei.index.prototype = {
 	},
 	initScriptAction: function(){
 		$('div.box').hover(function(e){
-			//$(this).find('img.backgd').css({'width':'130%', 'height':'130%'});
 			$(this).find('div.gdtip').show();
-			//e.stopPropagation();
 		}, function(e){
 			$(this).find('div.gdtip').hide();
-			//$(this).find('img.backgd').animate({'width':'100%', 'height':'100%'}, 'slow');
-			//e.stopPropagation();
 		});
 	}
 };

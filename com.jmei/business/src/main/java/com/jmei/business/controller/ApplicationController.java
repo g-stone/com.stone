@@ -24,6 +24,7 @@ import com.jmei.models.model.ResultObject;
 import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageSupport;
 
+@RequestMapping("/spring")
 @RestController("applicationController")
 public class ApplicationController {
 	/**

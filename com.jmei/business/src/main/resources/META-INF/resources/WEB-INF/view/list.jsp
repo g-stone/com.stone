@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,14 +10,14 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 		<title>佳美文印</title>
 		
-		<link href="${ctpath}/assert/css/super.slide.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/css/global.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/css/header.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/ui/list/list.css" rel="stylesheet"/>
-		<script src="${ctpath}/assert/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/js/menuindex.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/ui/list/list.js" type="text/javascript"></script>
+		<link href="${ctpath}/static/css/super.slide.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/css/global.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/css/header.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/ui/list/list.css" rel="stylesheet"/>
+		<script src="${ctpath}/static/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/js/menuindex.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/ui/list/list.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -42,7 +42,7 @@
 					<c:otherwise>
 						<c:forEach var="case" items="${cases}" varStatus="stu">
 						<div class="goods">
-							<a href="${ctpath}/case/detail?caseId=${case.caseId}">
+							<a href="${ctpath}/spring/case/detail?caseId=${case.caseId}">
 								<img src="${ctpath}/${case.caseOptionImage}">
 							</a>
 						</div>

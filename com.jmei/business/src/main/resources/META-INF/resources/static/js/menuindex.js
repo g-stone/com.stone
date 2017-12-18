@@ -12,15 +12,15 @@ jmei.menuindex = (typeof(jmei.menuindex) == 'object' ? jmei.menuindex : function
 	this.navigation = {el:'ul', 
 			attrs: [{key:'id', vals:['nav']}, {key:'class', vals:['nav','clearfix']}], 
 			navis: [
-			    {el:'li', aid:'', uri:'/index', name:'首页', attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'a071e8e9d37911e792de00ffcff25f0f', uri:'/brief?vi=1&id=', name:'简介', attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'', uri:'/case/list', name:'案例', 
+			    {el:'li', aid:'', uri:'/spring/index', name:'首页', attrs:[{key:'class', vals:['nLi']}]},
+			    {el:'li', aid:'a071e8e9d37911e792de00ffcff25f0f', uri:'/spring/brief?vi=1&id=', name:'简介', attrs:[{key:'class', vals:['nLi']}]},
+			    {el:'li', aid:'', uri:'/spring/case/list', name:'案例', 
 			        sub:{el:'ul', attrs:[{key:'class', vals:['sub']}, {key:'data-role', vals:['casecategory']}]}, 
 			        attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'a435535ed37911e792de00ffcff25f0f', uri:'/service?vi=3&id=', name:'服务', attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'9959627cd37911e792de00ffcff25f0f', uri:'/trends?vi=4&id=', name:'动态', attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'f9a32a52d37911e792de00ffcff25f0f', uri:'/recruit?vi=5&id=', name:'招聘', attrs:[{key:'class', vals:['nLi']}]},
-			    {el:'li', aid:'f91e6461d37911e792de00ffcff25f0f', uri:'/contact?vi=6&id=', name:'联系我们', attrs:[{key:'class', vals:['nLi']}]}
+			    {el:'li', aid:'a435535ed37911e792de00ffcff25f0f', uri:'/spring/service?vi=3&id=', name:'服务', attrs:[{key:'class', vals:['nLi']}]},
+			    {el:'li', aid:'9959627cd37911e792de00ffcff25f0f', uri:'/spring/trends?vi=4&id=', name:'动态', attrs:[{key:'class', vals:['nLi']}]},
+			    {el:'li', aid:'f9a32a52d37911e792de00ffcff25f0f', uri:'/spring/recruit?vi=5&id=', name:'招聘', attrs:[{key:'class', vals:['nLi']}]},
+			    {el:'li', aid:'f91e6461d37911e792de00ffcff25f0f', uri:'/spring/contact?vi=6&id=', name:'联系我们', attrs:[{key:'class', vals:['nLi']}]}
 			]};
 });
 jmei.menuindex.prototype = {
@@ -29,15 +29,15 @@ jmei.menuindex.prototype = {
 	},
 	menu: function(ele){
 		$.ajax({
-			url: jmei.webpath + '/case/category',
+			url: jmei.webpath + '/spring/case/category',
 			dataType: 'json',
 			success: function(data){
 				if(data.code == 1){
 					data.data.forEach(function(val, index, self){
-						console.log(val);
+						/**console.log(val);*/
 						ele.forEach(function(el, ex, ed){
-							console.log(el);
-							$(el.container).append($('<' + el.ele + '><a href="' + jmei.webpath + '/case/list?id=' + val.caseCategoryId + '" data-role="caseCategoryLoading" data-case-category="' + val.caseCategoryId + '">' + val.categoryName + '</a></' + el.ele + '>'))
+							/**console.log(el);*/
+							$(el.container).append($('<' + el.ele + '><a href="' + jmei.webpath + '/spring/case/list?id=' + val.caseCategoryId + '" data-role="caseCategoryLoading" data-case-category="' + val.caseCategoryId + '">' + val.categoryName + '</a></' + el.ele + '>'))
 						});
 					});
 				}
