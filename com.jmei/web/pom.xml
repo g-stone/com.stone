@@ -31,6 +31,11 @@
 			<artifactId>ui.ext</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
+			<artifactId>ui.kindeditor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		
 		<!--
 		<dependency>

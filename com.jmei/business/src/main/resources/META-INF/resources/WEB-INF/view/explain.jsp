@@ -10,17 +10,17 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 		<title>佳美文印</title>
 		
-		<link href="${ctpath}/assert/css/super.slide.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/css/global.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/css/header.css" rel="stylesheet"/>
-		<link href="${ctpath}/assert/ui/explain/explain.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/css/super.slide.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/css/global.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/css/header.css" rel="stylesheet"/>
+		<link href="${ctpath}/static/ui/explain/explain.css" rel="stylesheet"/>
 		<script type="text/javascript">
 			var curNavi = ${vi};
 		</script>
-		<script src="${ctpath}/assert/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/js/menuindex.js" type="text/javascript"></script>
-		<script src="${ctpath}/assert/ui/explain/explain.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/js/menuindex.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/ui/explain/explain.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="header">

@@ -13,5 +13,6 @@
 	<modules>
 		<module>ui.common</module>
 		<module>ui.ext</module>
+		<module>ui.editor</module>
 	</modules>
 </project>

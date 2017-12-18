@@ -84,6 +84,13 @@ public class DateUtils {
 		return formatter.format(date);
 	}
 	
+	public static String formatDate(final Long date, final String pattern){
+		Args.notNull(date, "Date");
+		Args.notNull(pattern, "Pattern");
+		final SimpleDateFormat formatter = get(pattern);
+		return formatter.format(new Date(date));
+	}
+	
 	private static SimpleDateFormat get(String pattern){
 		final SoftReference<Map<String, SimpleDateFormat>> ref = THREADLOCAL_FORMATS.get();
 		Map<String, SimpleDateFormat> formats = ref.get();

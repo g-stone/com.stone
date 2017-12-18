@@ -13,9 +13,9 @@
 		<link href="${ctpath}/static/css/global.css" rel="stylesheet"/>
 		<link href="${ctpath}/static/css/header.css" rel="stylesheet"/>
 		<link href="${ctpath}/static/ui/index/index.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
-		<script src="${ctpath}/static/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
-		<script src="${ctpath}/static/menuindex.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/js/menuindex.js" type="text/javascript"></script>
 		<script src="${ctpath}/static/ui/index/index.js" type="text/javascript"></script>
 	</head>
 	<body>
@@ -58,12 +58,10 @@
 					<c:otherwise>
 						<c:forEach var="case" items="${cases}" varStatus="stu">
 						<div class="box">
-							<a href="${ctpath}/spring/case/detail?caseId=${case.caseId}">
-								<div class="ctx">
-									<img class="backgd" src="${ctpath}/${case.caseOptionImage}"/>
-									<div class="gdtip">${case.shortDesc}</div>
-								</div>
-							</a>
+							<div class="ctx">
+								<img class="backgd" src="${ctpath}/${case.caseOptionImage}"/>
+								<div class="gdtip"><a href="${ctpath}/spring/case/detail?caseId=${case.caseId}">${case.shortDesc}</a></div>
+							</div>
 						</div>
 						</c:forEach>
 					</c:otherwise>
@@ -73,8 +71,6 @@
 		
 		<div class="clear"></div>
 		
-		<div class="footer">
-			Copyright@stone.com
-		</div>
+		<div class="footer">Copyright@stone.com</div>
 	</body>
 </html>

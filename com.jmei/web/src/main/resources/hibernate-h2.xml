@@ -33,7 +33,7 @@
 	<task:annotation-driven executor="executor" scheduler="scheduler" proxy-target-class="true"/>
 	-->
 	
-	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+	<bean class="com.stone.tools.property.StonePropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath*:config.properties</value>
