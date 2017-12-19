@@ -47,7 +47,7 @@ public class KindeditorController {
 		
 		String rootPath = kindeditorConfig.getRootPath();
 		//根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
-		String rootUrl  = request.getContextPath() + kindeditorConfig.getRootPathSubfix();
+		String rootUrl  = request.getContextPath() + kindeditorConfig.getRootPathMaping() + kindeditorConfig.getRootPathSubfix();
 		
 		String dirName = request.getParameter("dir");
 		if (dirName != null) {
@@ -144,7 +144,7 @@ public class KindeditorController {
 		String savePath = kindeditorConfig.getRootPath();
 		
 		//文件保存目录URL
-		String saveUrl  = request.getContextPath() + kindeditorConfig.getRootPathSubfix();
+		String saveUrl  = request.getContextPath() + kindeditorConfig.getRootPathMaping() + kindeditorConfig.getRootPathSubfix();
 		
 		//定义允许上传的文件扩展名
 		HashMap<String, List<String>> extMap = new HashMap<String, List<String>>();

@@ -4239,7 +4239,11 @@ _extend(KUploadButton, {
 			if (pre) {
 				str = pre.innerHTML;
 			} else {
-				str = doc.body.innerHTML;
+				console.log(doc);
+				console.log(doc.getElementsByTagName('Map')[0]);
+				console.log(doc.documentElement);
+				console.log(doc.body);
+				str = doc.body.innerHTML || '';
 			}
 			str = _unescape(str);
 			iframe[0].src = 'javascript:false';

@@ -35,6 +35,11 @@
 			<artifactId>com.stone.data</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
+			<artifactId>ui.common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

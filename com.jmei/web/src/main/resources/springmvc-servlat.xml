@@ -15,7 +15,7 @@
 	<import resource="classpath*:spring-mvc.xml"/>
 	
 	<!-- spring mvc对静态资源的访问 -->
-	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/" />
+	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/,file:${config.upload.path}/" />
 	
 	<mvc:interceptors>
 		<mvc:interceptor>

@@ -27,6 +27,7 @@ public class KindeditorConfiguration implements ApplicationContextAware, Servlet
 	
 	private String rootPathPrefix;
 	private String rootPathSubfix;
+	private String rootPathMaping;
 	private String rootPath;
 	private List<String> categoryTypes;
 	private List<String> imageTypes;
@@ -59,6 +60,11 @@ public class KindeditorConfiguration implements ApplicationContextAware, Servlet
 		
 		String subfix = config.getProperties().getProperty("config.kindeditor.root.path.subfix", DEFAULT_SUBFIX);
 		setRootPathSubfix(subfix);
+		
+		String mapping = config.getProperties().getProperty("config.kindeditor.root.path.maping");
+		if(StringUtils.hasText(prefix)){
+			this.setRootPathMaping(mapping);
+		}
 		
 		setRootPath(getRootPathPrefix() + getRootPathSubfix());
 		
@@ -178,6 +184,14 @@ public class KindeditorConfiguration implements ApplicationContextAware, Servlet
 	
 	public void setRootPathSubfix(String rootPathSubfix) {
 		this.rootPathSubfix = rootPathSubfix;
+	}
+	
+	public String getRootPathMaping() {
+		return rootPathMaping;
+	}
+	
+	public void setRootPathMaping(String rootPathMaping) {
+		this.rootPathMaping = rootPathMaping;
 	}
 	
 	@Override
