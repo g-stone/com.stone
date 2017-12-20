@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div style="width:79%;float:right;">
-				<div style="height:73px;display:block;min-height:82%;"></div>
+				<div style="height:73px;display:block;min-height:82%;" data-role="page-content"></div>
 			</div>
 		</div>
 	</body>
