@@ -59,7 +59,7 @@
 				<div class="sideMenu">
 					<h3><em></em>书签切换系列</h3>
 					<ul>
-						<li>淘宝首页右侧公告</li>
+						<li data-para="{url:'${ctpath}/spring/cms/'}">淘宝首页右侧公告</li>
 						<li>京东首页产品切换</li>
 						<li>苏宁易购首页品牌切换</li>
 						<li>1号店双重切换</li>
