@@ -13,6 +13,9 @@
 		</script>
 	</head>
 	<body>
-		
+		<div style="width:99%;min-height:100%;display:block;margin:0 auto;" data-role="container">
+			<table id="gridtable"></table>
+			<div id="gridpage"></div>
+		</div>
 	</body>
 </html>

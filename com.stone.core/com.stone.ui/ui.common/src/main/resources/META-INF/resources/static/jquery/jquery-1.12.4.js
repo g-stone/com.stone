@@ -68,8 +68,13 @@ var
 	version = "1.12.4",
 
 	// Define a local copy of jQuery
-	jQuery = function( selector, context ) {
-
+	jQuery = function(selector, context) {
+		this.browser = {msie: false, version: 0};
+		//MSIE
+		if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+			this.browser.msie = true;
+			this.browser.version = RegExp.$1;
+		}
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
@@ -94,6 +99,9 @@ jQuery.fn = jQuery.prototype = {
 	jquery: version,
 
 	constructor: jQuery,
+	
+	//support mse
+	browser: {msie: false, version: 0},
 
 	// Start with an empty selector
 	selector: "",
@@ -2865,7 +2873,13 @@ var rootjQuery,
 
 	init = jQuery.fn.init = function( selector, context, root ) {
 		var match, elem;
-
+		
+		//MSIE
+		if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+			jQuery.browser.msie = true;
+			jQuery.browser.version = RegExp.$1;
+		}
+		
 		// HANDLE: $(""), $(null), $(undefined), $(false)
 		if ( !selector ) {
 			return this;

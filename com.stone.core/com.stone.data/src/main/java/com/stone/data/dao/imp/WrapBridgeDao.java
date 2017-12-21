@@ -8,6 +8,7 @@ package com.stone.data.dao.imp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -268,7 +269,7 @@ public abstract class WrapBridgeDao implements IHibernateDao, IJdbcDao{
 			}
 		}
 		
-		return ((BigDecimal) tmpSQLQuery.uniqueResult()).intValue();
+		return ((BigInteger) tmpSQLQuery.uniqueResult()).intValue();
 	}
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })

@@ -18,7 +18,12 @@ jmei.gallery.prototype = {
 		console.log('loop...');
 	},
 	initScriptAction: function(){
-		
+		$('li[data-para]')
+			.css({'cursor':'pointer'})
+			.bind('click', function(){
+				var para = eval('(' + $(this).attr('data-para') + ')');
+				$('div[data-role="page-content"]').load(para.url);
+			});
 	}
 };
 if('object' == (typeof module) && 'object' == (typeof module.exports)){
