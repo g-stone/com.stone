@@ -24,7 +24,7 @@ import com.stone.tools.jdbc.PageSupport;
  * 案例分类控制器
  * @author dba
  */
-@RequestMapping("/spring/cms/article/category")
+@RequestMapping("/spring/cms/case/category")
 @RestController("cmsCaseCategoryController")
 public class CmsCaseCategoryController extends BasicController{
 	@RequestMapping(value = "/list")
@@ -44,15 +44,24 @@ public class CmsCaseCategoryController extends BasicController{
 		page.setCurrentPage(model.getPageIndex());
 		page.setSize(model.getPageSize());
 		Map<String, CriteriaNameBean> parameter = new HashMap<String, CriteriaNameBean>();
-		this.cmsCaseCategoryService.queryBeanList(
+		cmsCaseCategoryService.queryBeanList(
 							"select count(*) from t_case_category where 1 = 1 ", 
 							"select * from t_case_category where 1 = 1 ", 
 							parameter, page, CaseCategory.class, "order by sort_no");
 		return page;
 	}
 	
-	private ICmsCaseCategoryService cmsCaseCategoryService;
+	@RequestMapping("/edit")
+	public ModelAndView categoryEditorView(Model model){
+		ModelAndView view = new ModelAndView();
+		
+		get().info("查询案例分类...");
+		
+		view.setViewName("case-category-edit");
+		return view;
+	}
 	
+	private ICmsCaseCategoryService cmsCaseCategoryService;
 	public ICmsCaseCategoryService getCmsCaseCategoryService() {
 		return cmsCaseCategoryService;
 	}

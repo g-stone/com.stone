@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* Core Code */
+/*清除浮动*/
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{zoom:1;}
+
+.boxStyle { -moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+/* Remember to define focus styles! */
+:focus { outline: 0;}
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse:separate; border-spacing:0;}
+caption, th, td { font-weight:normal;}
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after,
+q:before, q:after { content: "";}
+blockquote, q { quotes: "" "";}
+
+.loading {width:auto;height:16px;background:url(images/loading.gif) no-repeat;background-position:left;}
+
+/***button****/
+.buttonWrap {padding:3px 4px;}
+a.button{ height:25px;line-height:25px;position:relative;cursor:pointer;padding-left:5px;margin-right:6px;background-position:0 0;zoom:1; _display:block;float:left;text-decoration:none;}
+
+.button, .button span,.min_button,.min_button span,.ext_button,.ext_button span{background:url(images/button_m.gif) no-repeat;color:#183152;display:block;}
+.buttonDisabled span, .buttonDisabled:hover span{color:#B2B2B2;}
+
+.button span{padding-right:8px; background-position:100% -50px; height:25px;line-height:25px;}
+.buttonIcon { left:2px;top:4px; width:16px;height:16px;position:absolute;}
+
+.button:hover{background-position:0 -100px;}
+.button:hover span { background-position:100% -150px;}
+.buttonDisabled:hover{background-position:0 0;}
+.buttonDisabled:hover span {background-position:100% -50px;}
+
+.min_button{ height:20px;line-height:20px;position:relative;cursor:pointer;padding-left:5px;margin-right:6px;background-position:0 -500px;}
+.min_button span{padding-right:8px; background-position:100% -550px; height:20px;line-height:20px;}
+.min_button:hover{background-position:0 -600px;}
+.min_button:hover span{background-position:100% -650px;}
+.min_buttonDisabled:hover{background-position:0 -500px;}
+.min_buttonDisabled:hover span {background-position:100% -550px;}
+
+.ext_button{ background-position:0 -679px;}
+.ext_button span{background-position:0 -709px;}
+
+.plain_button{display:inline-block;padding:0px 6px;cursor:pointer; text-decoration:none; margin-right:6px; background:#EFF5F6; border: 1px solid #EFF5F6;-moz-border-radius: 3px;-webkit-border-radius: 3px; border-radius:3px;   line-height:16px !important; height:16px  !important; }
+.plain_button:hover{ text-decoration:none;color:#ff0000; border: 1px solid #FFFCED;-moz-border-radius: 3px;-webkit-border-radius: 3px; border-radius:3px; background:#FFFCF2;}
+
+/*******panel*******
+.panel,.panel .panelHeader, .panel .panelHeaderContent, .panel .panelHeaderContent h1,
+.panel .panelFooter, .panel .panelFooterContent { background:url(images/panel/panel.png) no-repeat;}
+.panel .uncollapsable, .panel .collapsable { background:url(images/panel/panel_icon.png) no-repeat;}
+.panel .panelHeaderContent h1 { color:#183152; }
+.panel .panelHeaderToolbar {overflow:hidden; position: absolute;right: 4px;height:21px;top:4px;width:auto;text-align:right;}
+.panel .panelContent {overflow:auto;width:auto;}
+.panel .panelContentClzz{border-left:1px solid #B8D0D6;border-right:1px solid #B8D0D6;background:#fff;}
+.panel .panelHeaderContent {position:relative; display:block; height:28px; padding-right:5px; background-position:100% -50px; position:relative;}
+.panel .panelHeaderContent h1 {position:relative; text-align:left; display:block; overflow:hidden; height:28px;margin-left:5px;line-height:28px; background-position:0 -100px; background-repeat:repeat-x;}
+.panel .panelHeaderContent h1 p {line-height:28px;}
+.panel .panel_iconcls{height:18px;float:left;margin-top:6px;margin-right:4px;}
+.panel .panelFooter{ overflow:hidden; height:5px; padding-left:5px; background-position:0 -150px;}
+.panel .panelFooterContent { display:block; overflow:hidden; height:5px; padding-right:5px; background-position:100% -200px;}
+.panel {background-position: 0 100%; background-repeat: repeat-x;overflow:hidden;}
+.panel .panelHeaderToolbar a {float:right; display: block;height: 21px;overflow: hidden;text-indent: -1000px;top: 4px;width: 20px;}
+.panel .collapsable:hover {background-position: 0 -50px;}
+.panel .exttoolbar {background:url("images/dialog/dialogpanel_icon.png") no-repeat ;}
+.panel .uncollapsable{background-position: 0 -100px;}
+.panel .uncollapsable:hover{background-position: 0 -150px;}
+.panel .minable {background-position: 0 -200px;}
+.panel .minable:hover {background-position: 0 -250px;}
+.panel .maxable {background-position: 0 -100px;}
+.panel .maxable:hover {background-position: 0 -150px;}
+.panel .closeable {background-position: 0 0;}
+.panel .closeable:hover {background-position: 0 -50px;}
+.panel .expandable,.panel .unexpandable,.panel .expand_ioc{width:24px !important; background: url("images/layout/toggleSidebar.png") no-repeat;}
+.panel .expandable{background-position: 100% -50px;}
+.panel .expandable:hover{background-position: 100% -100px;}
+.panel .unexpandable{ background-position: 3px -150px;}
+.panel .unexpandable:hover,.panel .expand_ioc:hover{ background-position: 0px -200px;cursor:pointer;}
+.panel_expandable_min{ overflow:hidden;width:24px;background:#EFF5F6;width:24px;border:1px solid #B8D0D6;}
+.panel_expandable_min_cursor{cursor:pointer}
+.panel .expand_ioc {margin-top:2px;height:24px;background-position: 0px -150px;}
+.panel_min_hover{cursor:pointer;}
+.panel_min_hover:hover{background:#e5edef}
+*/
+/**********layout***********
+.layout .item{display:inline-block;float:left;height:100%;padding:0;margin:0;}
+.layout .split_mouse{cursor:ew-resize;}
+.layout .split_proxy {background:#D6D8FF;opacity: 0.85;filter:alpha(opacity=85);z-index:9999;}
+*/
+/************tree**************
+.tree div div {float:left; display:block; overflow:visible; width:17px;height:22px; border:none; }
+.tree .tree_item_wrap{background:#fff;min-width:100%;overflow:hidden;}
+.tree .tree_item_wrap:hover{background:#EFF5F6;}
+.tree_item_icon{background:url(images/tree/tree-icon.gif) no-repeat;}
+.tree div div.tree_text {display:block;float:left;width:auto;margin:0 3px;white-space:nowrap;}
+.tree li {  display:block; line-height:22px; cursor:pointer;}
+.tree div { display:block; height:22px; line-height:22px;}
+
+.tree .sigel_expandable{background-position:0 0;}
+.tree .first_expandable { background-position:0 -30px;}
+.tree .nor_expandable { background-position:0 -60px;}
+.tree .last_expandable { background-position:0 -90px;}
+
+.tree .sigel_collapsable{background-position:0 -120px;}
+.tree .first_collapsable { background-position:0 -150px;}
+.tree .nor_collapsable { background-position:0 -180px;}
+.tree .last_collapsable { background-position:0 -210px;}
+
+.tree .vertical_line{background-position:0 -238px;}
+.tree .cross_line{background-position:0 -270px;}
+.tree .up_line{background-position:0 -300px;}
+.tree .down_line{background-position:0 -330px;}
+
+.tree .node_expandable{background-position:0 -360px;}
+.tree .node_collapsable{background-position:0 -390px;}
+
+.tree .node_leaf{background-position:0 -420px;}
+
+.tree .unchecked { background-position:0 -450px;}
+.tree .unchecked:hover { background-position:0 -480px;}
+
+.tree .checked { background-position:0 -510px;}
+.tree .checked:hover { background-position:0 -540px;}
+
+.tree .indeterminate { background-position:0 -570px;}
+.tree .indeterminate:hover { background-position:0 -600px;}
+.tree .tree_tool_bar{margin-left:8px;width:auto;}
+.tree_tool_bar a{line-height:20px;height:20px;line-height:20px;}
+.tree_tool_bar a span{line-height:20px;height:20px;line-height:20px;}
+*/
+
+/**icons*/
+.photograph{background:url(images/icon.gif) no-repeat 0px 0px;width:16px;}
+.pager{background:url(images/icon.gif) no-repeat -16px 0px;width:16px;}
+.outbox{background:url(images/icon.gif) no-repeat -32px 0px;width:16px;}
+.print{background:url(images/icon.gif) no-repeat -48px 0px;width:16px;}
+.prev{background:url(images/icon.gif) no-repeat -64px 0px;width:16px;}
+.plus{background:url(images/icon.gif) no-repeat -80px 0px;width:16px;}
+.modify{background:url(images/icon.gif) no-repeat -96px 0px;width:16px;}
+.memeber{background:url(images/icon.gif) no-repeat -112px 0px;width:16px;}
+.mailbox{background:url(images/icon.gif) no-repeat -128px 0px;width:16px;}
+.ok{background:url(images/icon.gif) no-repeat -144px 0px;width:16px;}
+.myaccount{background:url(images/icon.gif) no-repeat -160px 0px;width:16px;}
+.msn{background:url(images/icon.gif) no-repeat -176px 0px;width:16px;}
+.process{background:url(images/icon.gif) no-repeat -192px 0px;width:16px;}
+.settings{background:url(images/icon.gif) no-repeat -208px 0px;width:16px;}
+.search2{background:url(images/icon.gif) no-repeat -224px 0px;width:16px;}
+.search{background:url(images/icon.gif) no-repeat -240px 0px;width:16px;}
+.view{background:url(images/icon.gif) no-repeat -256px 0px;width:16px;}
+.up{background:url(images/icon.gif) no-repeat -272px 0px;width:16px;}
+.true{background:url(images/icon.gif) no-repeat -288px 0px;width:16px;}
+.right{background:url(images/icon.gif) no-repeat -304px 0px;width:16px;}
+.refresh{background:url(images/icon.gif) no-repeat -320px 0px;width:16px;}
+.qq{background:url(images/icon.gif) no-repeat -336px 0px;width:16px;}
+.save-disabled{background:url(images/icon.gif) no-repeat -352px 0px;width:16px;}
+.save{background:url(images/icon.gif) no-repeat -368px 0px;width:16px;}
+.role{background:url(images/icon.gif) no-repeat -384px 0px;width:16px;}
+.logout{background:url(images/icon.gif) no-repeat -400px 0px;width:16px;}
+.candle{background:url(images/icon.gif) no-repeat -416px 0px;width:16px;}
+.calendar{background:url(images/icon.gif) no-repeat -432px 0px;width:16px;}
+.busy{background:url(images/icon.gif) no-repeat -448px 0px;width:16px;}
+.communication{background:url(images/icon.gif) no-repeat -464px 0px;width:16px;}
+.comment{background:url(images/icon.gif) no-repeat -480px 0px;width:16px;}
+.coffee{background:url(images/icon.gif) no-repeat -496px 0px;width:16px;}
+.attibutes{background:url(images/icon.gif) no-repeat -512px 0px;width:16px;}
+.archives{background:url(images/icon.gif) no-repeat -528px 0px;width:16px;}
+.add{background:url(images/icon.gif) no-repeat -544px 0px;width:16px;}
+.bookpen{background:url(images/icon.gif) no-repeat -560px 0px;width:16px;}
+.bluebook{background:url(images/icon.gif) no-repeat -576px 0px;width:16px;}
+.back{background:url(images/icon.gif) no-repeat -592px 0px;width:16px;}
+.config{background:url(images/icon.gif) no-repeat -608px 0px;width:16px;}
+.greenwarn{background:url(images/icon.gif) no-repeat -624px 0px;width:16px;}
+.graywarn{background:url(images/icon.gif) no-repeat -640px 0px;width:16px;}
+.edit{background:url(images/icon.gif) no-repeat -656px 0px;width:16px;}
+.lock{background:url(images/icon.gif) no-repeat -672px 0px;width:16px;}
+.home{background:url(images/icon.gif) no-repeat -688px 0px;width:16px;}
+.help{background:url(images/icon.gif) no-repeat -704px 0px;width:16px;}
+.database{background:url(images/icon.gif) no-repeat -720px 0px;width:16px;}
+.cut{background:url(images/icon.gif) no-repeat -736px 0px;width:16px;}
+.customers{background:url(images/icon.gif) no-repeat -752px 0px;width:16px;}
+.down{background:url(images/icon.gif) no-repeat -768px 0px;width:16px;}
+.discuss{background:url(images/icon.gif) no-repeat -784px 0px;width:16px;}
+.delete{background:url(images/icon.gif) no-repeat -800px 0px;width:16px;}
+.order-down{background:url(images/icon.gif) no-repeat -820px 0px;width:16px;}
+.min-add{background:url(images/icon.gif) no-repeat -848px 0px;width:15px;}
+.min-del{background:url(images/icon.gif) no-repeat -863px 0px;width:15px;}
+.min-edit{background:url(images/icon.gif) no-repeat -878px 0px;width:15px;}
+.min-query{background:url(images/icon.gif) no-repeat -893px 0px;width:15px;}
+.min-comm{background:url(images/icon.gif) no-repeat -909px 0px;width:15px;}
+.pg-first{background:url(images/icon.gif) no-repeat -924px 0px;width:10px;}
+.pg-prev{background:url(images/icon.gif) no-repeat -934px 0px;width:10px;}
+.pg-next{background:url(images/icon.gif) no-repeat -944px 0px;width:10px;}
+.pg-last{background:url(images/icon.gif) no-repeat -954px 0px;width:10px;}
+.pg-first-dis{background:url(images/icon.gif) no-repeat -966px 0px;width:10px;}
+.pg-prev-dis{background:url(images/icon.gif) no-repeat -976px 0px;width:10px;}
+.pg-next-dis{background:url(images/icon.gif) no-repeat -986px 0px;width:10px;}
+.pg-last-dis{background:url(images/icon.gif) no-repeat -996px 0px;width:10px;}
+.pg-go{background:url(images/icon.gif) no-repeat -1008px 0px;width:10px;}

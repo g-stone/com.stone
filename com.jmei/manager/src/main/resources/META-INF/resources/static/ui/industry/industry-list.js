@@ -3,7 +3,7 @@
  */
 var jmei = jmei || {};
 
-jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
+jmei.industry = (typeof(jmei.industry) == 'object' ? jmei.industry : function(){
 	this.opts = {
 		see: function(){
 			console.log('opts-->see');
@@ -11,9 +11,9 @@ jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
 	};
 	this.grid = null;
 	this.toolbar = null;
-	this.pageUrl = jmei.webpath + '/spring/cms/case/category/page';
+	this.pageUrl = jmei.webpath + '/spring/cms/case/industry/page';
 });
-jmei.category.prototype = {
+jmei.industry.prototype = {
 	see: function(){
 		console.log('see');
 	},
@@ -23,7 +23,7 @@ jmei.category.prototype = {
 	initScriptAction: function(){
 		this.toolbar = $('#toolbar').toolbar(this.toolbarOpts);
 		var url = this.pageUrl;
-		this.grid = $('#gridtable').jqGrid({ 
+		this.grid = $("#gridtable").jqGrid({ 
 			url: url,
 			datatype: 'json',
 			mtype: 'POST',
@@ -56,7 +56,7 @@ jmei.category.prototype = {
 			viewrecords: true,
 			pgtext: '<table><tr><td>{0}</td><td>共{1}页</td></tr></table>',
 			loadui: 'block',
-			caption:'案例分类...',
+			caption:'行业分类...',
 			autowidth: true,
 			shrinkToFit: true,
 			rownumbers: true
@@ -80,7 +80,7 @@ if('object' == (typeof module) && 'object' == (typeof module.exports)){
 	window.jmei = jmei;
 }
 $(function(){
-	var s = new jmei.category();
+	var s = new jmei.industry();
 	s.initScriptAction();
 	$(window).resize(function(){
 		s.resizeGridDemosion();

@@ -57,29 +57,27 @@
 			<div style="display:block;min-height:18%;margin:0 auto;background-color:2b88ff;"></div>
 			<div style="width:21%;float:left;min-height:82%;">
 				<div class="sideMenu">
-					<h3><em></em>书签切换系列</h3>
+					<h3><em></em>案例管理</h3>
 					<ul>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">淘宝首页右侧公告</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">京东首页产品切换</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">苏宁易购首页品牌切换</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">1号店双重切换</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">腾讯健康频道切换</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">案例分类</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/industry/list','index':0}">案例行业</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/list','index':0}">案例列表</li>
 					</ul>
 					<h3><em></em>幻灯片/焦点图系列</h3>
 					<ul>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">淘宝首页焦点图</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">腾讯娱乐频道焦点图</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">腾讯电影频道焦点图</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">网易游戏频道焦点图</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list','index':0}">易迅首页焦点图</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">淘宝首页焦点图</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">腾讯娱乐频道焦点图</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">腾讯电影频道焦点图</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">网易游戏频道焦点图</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list','index':0}">易迅首页焦点图</li>
 					</ul>
 					<h3><em></em>带按钮切换</h3>
 					<ul>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list',index:0}">淘宝首页今日活动</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list',index:0}">豆瓣读书频道</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list',index:0}">天猫首页品牌切换</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list',index:0}">格瓦拉首页活动进行中</li>
-						<li data-para="{'url':'${ctpath}/spring/cms/article/category/list',index:0}">腾讯博客图片滚动</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list',index:0}">淘宝首页今日活动</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list',index:0}">豆瓣读书频道</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list',index:0}">天猫首页品牌切换</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list',index:0}">格瓦拉首页活动进行中</li>
+						<li data-para="{'url':'${ctpath}/spring/cms/case/category/list',index:0}">腾讯博客图片滚动</li>
 					</ul>
 				</div>
 			</div>

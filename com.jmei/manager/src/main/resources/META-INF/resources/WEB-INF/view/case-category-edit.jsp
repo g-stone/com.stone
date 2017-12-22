@@ -4,10 +4,10 @@
 <html>
 	<head>
 		<jsp:include page="/common/meta.jsp">
-			<jsp:param value="案例" name="cms_page_title"/>
+			<jsp:param value="案例分类编辑" name="cms_page_title"/>
 		</jsp:include>
-		<link href="${ctpath}/static/ui/case/case-list.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/ui/case/case-list.js" type="text/javascript"></script>
+		<link href="${ctpath}/static/ui/category/category-edit.css" rel="stylesheet"/>
+		<script src="${ctpath}/static/ui/category/category-edit.js" type="text/javascript"></script>
 		<script>
 		
 		</script>

@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @MappedSuperclass
 public abstract class OptionsExts implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -31,6 +33,7 @@ public abstract class OptionsExts implements Serializable{
 		this.sortNo = sortNo;
 	}
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	@Column(name = "create_date", columnDefinition = "datetime comment '创建时间'")
 	public Date getCreateDate() {
 		return createDate;
@@ -39,6 +42,7 @@ public abstract class OptionsExts implements Serializable{
 		this.createDate = createDate;
 	}
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	@Column(name = "update_date", columnDefinition = "datetime comment '更新时间'")
 	public Date getUpdateDate() {
 		return updateDate;

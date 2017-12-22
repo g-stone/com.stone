@@ -33,7 +33,5 @@ if('object' == (typeof module) && 'object' == (typeof module.exports)){
 }
 $(function(){
 	var s = new jmei.gallery();
-	s.opts.see();
-	s.see();
 	s.initScriptAction();
 });

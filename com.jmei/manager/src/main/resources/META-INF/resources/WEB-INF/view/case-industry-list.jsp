@@ -4,15 +4,19 @@
 <html>
 	<head>
 		<jsp:include page="/common/meta.jsp">
-			<jsp:param value="文章栏目管理" name="cms_page_title"/>
+			<jsp:param value="案例行业" name="cms_page_title"/>
 		</jsp:include>
-		<link href="${ctpath}/static/ui/category/category-list.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/ui/category/category-list.js" type="text/javascript"></script>
+		<link href="${ctpath}/static/ui/industry/industry-list.css" rel="stylesheet"/>
+		<script src="${ctpath}/static/ui/industry/industry-list.js" type="text/javascript"></script>
 		<script>
 		
 		</script>
 	</head>
 	<body>
-		
+		<div style="width:99%;min-height:100%;display:block;margin:0 auto;background-color:rgb(245, 245, 247);" data-role="container">
+			<div id="toolbar" style="height:26px;padding-top:6px;"></div>
+			<table id="gridtable"></table>
+			<div id="gridpage"></div>
+		</div>
 	</body>
 </html>

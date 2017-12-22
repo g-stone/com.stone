@@ -3,7 +3,7 @@
  */
 var jmei = jmei || {};
 
-jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
+jmei.cases = (typeof(jmei.cases) == 'object' ? jmei.cases : function(){
 	this.opts = {
 		see: function(){
 			console.log('opts-->see');
@@ -11,9 +11,9 @@ jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
 	};
 	this.grid = null;
 	this.toolbar = null;
-	this.pageUrl = jmei.webpath + '/spring/cms/case/category/page';
+	this.pageUrl = jmei.webpath + '/spring/cms/case/page';
 });
-jmei.category.prototype = {
+jmei.cases.prototype = {
 	see: function(){
 		console.log('see');
 	},
@@ -33,9 +33,9 @@ jmei.category.prototype = {
 					prepareAjax(this);
 				}
 			},
-			colNames:['分类名称', '是否展示', '最后修改日期'],
+			colNames:['名称', '是否展示', '最后修改日期'],
 			colModel:[
-				{name:'categoryName',index:'categoryName', width:55},
+				{name:'caseName',index:'caseName', width:55},
 				{name:'isShow',index:'isShow', width:90},
 				{name:'updateDate',index:'updateDate', width:100}
 			],
@@ -56,7 +56,7 @@ jmei.category.prototype = {
 			viewrecords: true,
 			pgtext: '<table><tr><td>{0}</td><td>共{1}页</td></tr></table>',
 			loadui: 'block',
-			caption:'案例分类...',
+			caption:'行业分类...',
 			autowidth: true,
 			shrinkToFit: true,
 			rownumbers: true
@@ -80,7 +80,7 @@ if('object' == (typeof module) && 'object' == (typeof module.exports)){
 	window.jmei = jmei;
 }
 $(function(){
-	var s = new jmei.category();
+	var s = new jmei.cases();
 	s.initScriptAction();
 	$(window).resize(function(){
 		s.resizeGridDemosion();
