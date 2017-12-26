@@ -106,6 +106,20 @@ public abstract class WrapBridgeDao implements IHibernateDao, IJdbcDao{
 	}
 	
 	@Override
+	public <T> void delete(T entity){
+		sessionFactory.getCurrentSession().delete(entity);
+	}
+	
+	@Override
+	public <T> void delete(Class<T> clz, Serializable key){
+		T obj = get(clz, key);
+		
+		if(obj != null){
+			delete(obj);
+		}
+	}
+	
+	@Override
 	@SuppressWarnings("unchecked")
 	public <T> T getByMappingProperty(Map<String, Object> parameter, Class<T> c){
 		T result = null;

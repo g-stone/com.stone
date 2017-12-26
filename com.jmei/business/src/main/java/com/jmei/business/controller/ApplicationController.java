@@ -20,9 +20,9 @@ import com.jmei.models.entity.Case;
 import com.jmei.models.entity.CaseCategory;
 import com.jmei.models.entity.CaseImages;
 import com.jmei.models.entity.SiteImages;
-import com.jmei.models.model.ResultObject;
 import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageSupport;
+import com.stone.tools.model.ResultObject;
 
 @RequestMapping("/spring")
 @RestController("applicationController")

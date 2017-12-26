@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jmei.manager.service.ICmsCaseIndustryService;
 import com.jmei.models.entity.IndustryCategory;
-import com.stone.tools.controller.BasicController;
+import com.stone.data.controller.BasicController;
 import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageQueryModel;
 import com.stone.tools.jdbc.PageQuerySupport;

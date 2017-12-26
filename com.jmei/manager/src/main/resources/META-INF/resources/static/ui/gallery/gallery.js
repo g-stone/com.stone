@@ -1,7 +1,11 @@
 /*!
  * index
  */
-var jmei = jmei || {};
+var jmei = jmei || {
+	open: function(url, param){
+		$('div[data-role="page-content"]').load(jmei.webpath + url);
+	}
+};
 
 jmei.gallery = (typeof(jmei.gallery) == 'object' ? jmei.gallery : function(){
 	this.opts = {

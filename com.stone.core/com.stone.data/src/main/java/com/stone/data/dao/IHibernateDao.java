@@ -60,6 +60,27 @@ public interface IHibernateDao {
 	<T> T get(Class<T> clz, Serializable key);
 	
 	/**
+	 * 功能说明：删除对象
+	 * IHibernateDao.delete();
+	 * @author: lixinpeng
+	 * @DATE: 2017年10月10日  @TIME: 上午8:58:08
+	 * @param entity
+	 * @return
+	 */
+	<T> void delete(T entity);
+	
+	/**
+	 * 功能说明：删除对象
+	 * IHibernateDao.delete();
+	 * @author: lixinpeng
+	 * @DATE: 2017年10月10日  @TIME: 上午8:58:08
+	 * @param clz
+	 * @param key
+	 * @return
+	 */
+	<T> void delete(Class<T> clz, Serializable key);
+	
+	/**
 	 * 功能说明：通过属性映射获取对象
 	 * IHibernateDao.getByMappingProperty();
 	 * @author: lixinpeng

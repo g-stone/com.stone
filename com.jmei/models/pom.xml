@@ -20,16 +20,6 @@
 			<artifactId>com.stone.parent.jdbc</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
-			<artifactId>com.stone.tools</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
-			<artifactId>com.stone.data</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 	</dependencies>
 	
 	<build>

@@ -1,4 +1,4 @@
-package com.jmei.models.model;
+package com.stone.tools.model;
 
 public class ResultObject {
 	private int code;

@@ -73,4 +73,12 @@ public class CommonServiceImpl implements ICommonService{
 			PageSupport<T> page, Class<T> _class, String orderSort) {
 		return commonDao.queryBeanList(countSql, dataSql, parameter, page, _class, orderSort);
 	}
+	@Override
+	public <T> void delete(T entity) {
+		commonDao.delete(entity);
+	}
+	@Override
+	public <T> void delete(Class<T> clz, Serializable key) {
+		commonDao.delete(clz, key);
+	}
 }

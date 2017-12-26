@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jmei.manager.service.ICmsCaseCategoryService;
 import com.jmei.models.entity.CaseCategory;
-import com.stone.tools.controller.BasicController;
+import com.stone.data.controller.BasicController;
 import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageQueryModel;
 import com.stone.tools.jdbc.PageQuerySupport;
@@ -52,10 +53,12 @@ public class CmsCaseCategoryController extends BasicController{
 	}
 	
 	@RequestMapping("/edit")
-	public ModelAndView categoryEditorView(Model model){
+	public ModelAndView categoryEditorView(Model model, HttpServletRequest req){
 		ModelAndView view = new ModelAndView();
 		
 		get().info("查询案例分类...");
+		
+		editPreOption(model, req, CaseCategory.class);
 		
 		view.setViewName("case-category-edit");
 		return view;

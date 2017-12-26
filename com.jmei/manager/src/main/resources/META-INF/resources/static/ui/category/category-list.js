@@ -69,10 +69,23 @@ jmei.category.prototype = {
 	},
 	toolbarOpts: {style: 'ext', 
 		buttons: [
-		{id: "bar_add", iconCls: "add", text: "新增", click: function(pr){console.log("新增");}},
-		{id: "bar_modify", iconCls: "modify", text: "编辑", click: function(pr){console.log("编辑");}},
-		{id: "bar_delete", iconCls: "delete", text: "删除", click: function(pr){console.log("删除");}},
-		{id: "bar_search", iconCls: "search", text: "查询", click: function(pr){console.log("查询");}}]}
+		{id: 'bar_add', iconCls: 'add', text: '新增', 
+			click: function(pr){
+				jmei.open('/spring/cms/case/category/edit', {});
+			}},
+		{id: 'bar_modify', iconCls: 'modify', text: '编辑', 
+			click: function(pr){
+				jmei.open('/spring/cms/case/category/edit', {});
+			}},
+		{id: 'bar_delete', iconCls: 'delete', text: '删除', 
+			click: function(pr){
+				jmei.open('/spring/cms/case/category/edit', {});
+			}},
+		{id: 'bar_search', iconCls: 'search', text: '查询', 
+			click: function(pr){
+				jmei.open('/spring/cms/case/category/edit', {});
+			}}
+		]}
 };
 if('object' == (typeof module) && 'object' == (typeof module.exports)){
 	module.exports = jmei;

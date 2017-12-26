@@ -18,7 +18,8 @@
 <script src="${ctpath}/static/lib/tools.js" charset="utf-8" type="text/javascript"></script>
 <script src="${ctpath}/static/slide/jquery.superslide.2.1.1.js" charset="utf-8" type="text/javascript"></script>
 
-<script src="${ctpath}/static/jquery/ui/jquery-ui.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="${ctpath}/static/jquery/ui/jquery.form.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="${ctpath}/static/jquery/form/jquery-ui.min.js" charset="utf-8" type="text/javascript"></script>
 <script src="${ctpath}/static/jquery/toolbar/jq-toolbar.js" charset="utf-8" type="text/javascript"></script>
 <script src="${ctpath}/static/jquery/grid/js/i18n/grid.locale-cn.js" charset="utf-8" type="text/javascript"></script>
 <script src="${ctpath}/static/jquery/grid/js/jquery.jqGrid.src.js" charset="utf-8" type="text/javascript"></script>

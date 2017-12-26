@@ -14,9 +14,7 @@
 	</head>
 	<body>
 		<div style="width:99%;min-height:100%;display:block;margin:0 auto;background-color:rgb(245, 245, 247);" data-role="container">
-			<div id="toolbar" style="height:26px;padding-top:6px;"></div>
-			<table id="gridtable"></table>
-			<div id="gridpage"></div>
+			<h2>编辑----添加----修改</h2>
 		</div>
 	</body>
 </html>
