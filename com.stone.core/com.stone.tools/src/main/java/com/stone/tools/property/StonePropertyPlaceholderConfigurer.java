@@ -17,8 +17,8 @@ public class StonePropertyPlaceholderConfigurer extends PropertyPlaceholderConfi
 	}
 	
 	protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties properties) throws BeansException {
-		logger.info("回调属性设置...");
 		super.processProperties(beanFactoryToProcess, properties);
 		this.properties = properties;
+		logger.info("回调属性设置...");
 	}
 }

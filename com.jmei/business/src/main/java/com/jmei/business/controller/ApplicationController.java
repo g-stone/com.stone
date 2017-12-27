@@ -79,7 +79,9 @@ public class ApplicationController {
 		ModelAndView view = new ModelAndView();
 		
 		Case cases = siteIndexService.get(Case.class, caseId);
-		List<CaseImages> caseImages = siteIndexService.queryByMappingProperty(null, CaseImages.class);
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		parameter.put("caseId_0", caseId);
+		List<CaseImages> caseImages = siteIndexService.queryByMappingProperty(parameter, CaseImages.class);
 		
 		view.addObject("case", cases);
 		view.addObject("caseImages", caseImages);

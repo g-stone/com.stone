@@ -3,11 +3,11 @@
  */
 var jmei = jmei || {};
 
-jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
-	this.editUrl = jmei.webpath + '/spring/cms/case/category/edited';
-	this.listUrl = '/spring/cms/case/category/list';
+jmei.industry = (typeof(jmei.industry) == 'object' ? jmei.industry : function(){
+	this.editUrl = jmei.webpath + '/spring/cms/case/industry/edited';
+	this.listUrl = '/spring/cms/case/industry/list';
 });
-jmei.category.prototype = {
+jmei.industry.prototype = {
 	initScriptAction: function(){
 		if(curObj){
 			$.each($('[data-role="edit"]'), function(index, src){
@@ -48,6 +48,6 @@ if('object' == (typeof module) && 'object' == (typeof module.exports)){
 	window.jmei = jmei;
 }
 $(function(){
-	var s = new jmei.category();
+	var s = new jmei.industry();
 	s.initScriptAction();
 });

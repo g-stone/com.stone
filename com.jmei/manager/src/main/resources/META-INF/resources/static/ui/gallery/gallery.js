@@ -1,11 +1,23 @@
 /*!
  * index
  */
-var jmei = jmei || {
-	open: function(url, param){
-		$('div[data-role="page-content"]').load(jmei.webpath + url);
+var jmei = jmei || {};
+
+jmei.open = function(url, param){
+	var queryString = '';
+	
+	if(typeof(param) == 'object'){
+		for(var pare in param){
+			queryString += '&' + pare + '=' + param[pare];
+		}
 	}
-};
+	
+	if(queryString != ''){
+		url += '?' + queryString.substring(1)
+	}
+	
+	$('div[data-role="page-content"]').load(jmei.webpath + url);
+}
 
 jmei.gallery = (typeof(jmei.gallery) == 'object' ? jmei.gallery : function(){
 	this.opts = {

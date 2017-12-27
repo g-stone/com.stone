@@ -20,6 +20,7 @@ import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageQueryModel;
 import com.stone.tools.jdbc.PageQuerySupport;
 import com.stone.tools.jdbc.PageSupport;
+import com.stone.tools.model.ResultObject;
 
 /**
  * 案例分类控制器
@@ -31,8 +32,6 @@ public class CmsCaseCategoryController extends BasicController{
 	@RequestMapping(value = "/list")
 	public ModelAndView categoryListView(Model model){
 		ModelAndView view = new ModelAndView();
-		
-		get().info("查询案例分类...");
 		
 		view.setViewName("case-category-list");
 		return view;
@@ -56,12 +55,24 @@ public class CmsCaseCategoryController extends BasicController{
 	public ModelAndView categoryEditorView(Model model, HttpServletRequest req){
 		ModelAndView view = new ModelAndView();
 		
-		get().info("查询案例分类...");
-		
 		editPreOption(model, req, CaseCategory.class);
 		
 		view.setViewName("case-category-edit");
 		return view;
+	}
+	
+	@RequestMapping("/edited")
+	public ResultObject categoryEdit(@RequestBody CaseCategory caseCategory, HttpServletRequest req){
+		ResultObject result = new ResultObject();
+		
+		cmsCaseCategoryService.addOrUpdateCaseCategory(caseCategory);
+		
+		return result;
+	}
+	
+	@RequestMapping("/delete")
+	public ResultObject categoryDel(Model model, HttpServletRequest req){
+		return delPreOption(req, CaseCategory.class);
 	}
 	
 	private ICmsCaseCategoryService cmsCaseCategoryService;

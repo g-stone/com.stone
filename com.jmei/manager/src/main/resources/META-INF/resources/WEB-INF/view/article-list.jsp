@@ -6,13 +6,17 @@
 		<jsp:include page="/common/meta.jsp">
 			<jsp:param value="文章栏目管理" name="cms_page_title"/>
 		</jsp:include>
-		<link href="${ctpath}/static/ui/category/category-list.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/ui/category/category-list.js" type="text/javascript"></script>
+		<link href="${ctpath}/static/ui/article/article-list.css" rel="stylesheet"/>
+		<script src="${ctpath}/static/ui/article/article-list.js" type="text/javascript"></script>
 		<script>
 		
 		</script>
 	</head>
 	<body>
-		
+		<div class="wrap" data-role="container">
+			<div id="toolbar" class="tbar"></div>
+			<table id="gridtable"></table>
+			<div id="gridpage"></div>
+		</div>
 	</body>
 </html>

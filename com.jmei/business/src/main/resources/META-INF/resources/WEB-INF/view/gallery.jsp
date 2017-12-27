@@ -13,8 +13,8 @@
 		<link href="${ctpath}/static/css/global.css" rel="stylesheet"/>
 		<link href="${ctpath}/static/css/header.css" rel="stylesheet"/>
 		<link href="${ctpath}/static/ui/detail/detail.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
-		<script src="${ctpath}/static/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
 		<script src="${ctpath}/static/js/menuindex.js" type="text/javascript"></script>
 		<script src="${ctpath}/static/ui/detail/detail.js" type="text/javascript"></script>
 	</head>

@@ -15,7 +15,7 @@ public interface ICommonService {
 	 * @DATE: 2017年10月23日  @TIME: 上午8:45:48
 	 * @param list
 	 */
-	<T> void saveBatch(List<T> list);
+	<T> void addBatch(List<T> list);
 	
 	/**
 	 * 功能说明：对象批量更新操作
@@ -33,7 +33,7 @@ public interface ICommonService {
 	 * @DATE: 2017年10月23日  @TIME: 上午8:46:36
 	 * @param list
 	 */
-	<T> void saveOrUpdateBatch(List<T> list);
+	<T> void addOrUpdateBatch(List<T> list);
 	
 	/**
 	 * 功能说明：查询给定的对象是否存在
@@ -53,7 +53,7 @@ public interface ICommonService {
 	 * @param entity
 	 * @return
 	 */
-	<T> Serializable save(T entity);
+	<T> Serializable add(T entity);
 	
 	/**
 	 * 功能说明：更新实体对象
@@ -71,7 +71,7 @@ public interface ICommonService {
 	 * @DATE: 2017年9月23日  @TIME: 下午5:59:15
 	 * @param entity
 	 */
-	<T> void saveOrUpdate(T entity);
+	<T> void addOrUpdate(T entity);
 	
 	/**
 	 * 功能说明：依据主键获取对应的实体对象

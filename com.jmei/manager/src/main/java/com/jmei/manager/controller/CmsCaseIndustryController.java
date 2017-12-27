@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import com.stone.tools.jdbc.CriteriaNameBean;
 import com.stone.tools.jdbc.PageQueryModel;
 import com.stone.tools.jdbc.PageQuerySupport;
 import com.stone.tools.jdbc.PageSupport;
+import com.stone.tools.model.ResultObject;
 
 /**
  * 案例行业分类控制器
@@ -50,6 +52,30 @@ public class CmsCaseIndustryController extends BasicController{
 							"select * from t_industry_category where 1 = 1 ", 
 							parameter, page, IndustryCategory.class, "order by sort_no");
 		return page;
+	}
+	
+	@RequestMapping("/edit")
+	public ModelAndView industryEditorView(Model model, HttpServletRequest req){
+		ModelAndView view = new ModelAndView();
+		
+		editPreOption(model, req, IndustryCategory.class);
+		
+		view.setViewName("case-industry-edit");
+		return view;
+	}
+	
+	@RequestMapping("/edited")
+	public ResultObject industryEdit(@RequestBody IndustryCategory industryCategory, HttpServletRequest req){
+		ResultObject result = new ResultObject();
+		
+		cmsCaseIndustryService.addOrUpdateIndustryCategory(industryCategory);
+		
+		return result;
+	}
+	
+	@RequestMapping("/delete")
+	public ResultObject industryDel(Model model, HttpServletRequest req){
+		return delPreOption(req, IndustryCategory.class);
 	}
 	
 	private ICmsCaseIndustryService cmsCaseIndustryService;

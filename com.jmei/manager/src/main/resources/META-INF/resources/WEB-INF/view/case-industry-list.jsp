@@ -13,8 +13,8 @@
 		</script>
 	</head>
 	<body>
-		<div style="width:99%;min-height:100%;display:block;margin:0 auto;background-color:rgb(245, 245, 247);" data-role="container">
-			<div id="toolbar" style="height:26px;padding-top:6px;"></div>
+		<div class="wrap" data-role="container">
+			<div id="toolbar" class="tbar"></div>
 			<table id="gridtable"></table>
 			<div id="gridpage"></div>
 		</div>

@@ -25,7 +25,7 @@ public class CommonServiceImpl implements ICommonService{
 		this.commonDao = commonDao;
 	}
 	@Override
-	public <T> void saveBatch(List<T> list) {
+	public <T> void addBatch(List<T> list) {
 		commonDao.saveBatch(list);
 	}
 	@Override
@@ -33,7 +33,7 @@ public class CommonServiceImpl implements ICommonService{
 		commonDao.updateBatch(list);
 	}
 	@Override
-	public <T> void saveOrUpdateBatch(List<T> list) {
+	public <T> void addOrUpdateBatch(List<T> list) {
 		commonDao.saveOrUpdateBatch(list);
 	}
 	@Override
@@ -41,7 +41,7 @@ public class CommonServiceImpl implements ICommonService{
 		return commonDao.queryIsExist(t);
 	}
 	@Override
-	public <T> Serializable save(T entity) {
+	public <T> Serializable add(T entity) {
 		return commonDao.save(entity);
 	}
 	@Override
@@ -49,7 +49,7 @@ public class CommonServiceImpl implements ICommonService{
 		commonDao.update(entity);
 	}
 	@Override
-	public <T> void saveOrUpdate(T entity) {
+	public <T> void addOrUpdate(T entity) {
 		commonDao.saveOrUpdate(entity);
 	}
 	@Override

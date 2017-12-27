@@ -17,8 +17,8 @@
 		<script type="text/javascript">
 			var curNavi = ${vi};
 		</script>
-		<script src="${ctpath}/static/plugins/jquery/jquery-1.12.4.js" type="text/javascript"></script>
-		<script src="${ctpath}/static/plugins/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="${ctpath}/static/slide/jquery.superslide.2.1.1.js" type="text/javascript"></script>
 		<script src="${ctpath}/static/js/menuindex.js" type="text/javascript"></script>
 		<script src="${ctpath}/static/ui/explain/explain.js" type="text/javascript"></script>
 	</head>

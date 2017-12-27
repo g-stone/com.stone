@@ -3,7 +3,7 @@
  */
 var jmei = jmei || {};
 
-jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
+jmei.articleCategory = (typeof(jmei.articleCategory) == 'object' ? jmei.articleCategory : function(){
 	this.opts = {
 		see: function(){
 			console.log('opts-->see');
@@ -11,15 +11,9 @@ jmei.category = (typeof(jmei.category) == 'object' ? jmei.category : function(){
 	};
 	this.grid = null;
 	this.toolbar = null;
-	this.pageUrl = jmei.webpath + '/spring/cms/case/category/page';
+	this.pageUrl = jmei.webpath + '/spring/cms/article/category/page';
 });
-jmei.category.prototype = {
-	see: function(){
-		console.log('see');
-	},
-	lookup: function(){
-		console.log('loop...');
-	},
+jmei.articleCategory.prototype = {
 	initScriptAction: function(){
 		var url = this.pageUrl;
 		this.grid = $('#gridtable').jqGrid({ 
@@ -32,12 +26,12 @@ jmei.category.prototype = {
 					prepareAjax(this);
 				}
 			},
-			colNames:['分类名称', '是否展示', '最后修改日期', '分类ID'],
+			colNames:['名称', '是否展示', '最后修改日期', 'ID'],
 			colModel:[
 				{name:'categoryName',index:'categoryName', width:55},
 				{name:'isShow',index:'isShow', width:90},
 				{name:'updateDate',index:'updateDate', width:100},
-				{name:'caseCategoryId',index:'caseCategoryId', width:0, hidden:true}
+				{name:'articleCategoryId',index:'articleCategoryId', width:0, hidden:true}
 			],
 			prmNames: {page:'pageIndex', rows:'pageSize', search:'query'},
 			gridComplete: function(){},
@@ -56,7 +50,7 @@ jmei.category.prototype = {
 			viewrecords: true,
 			pgtext: '<table><tr><td>{0}</td><td>共{1}页</td></tr></table>',
 			loadui: 'block',
-			caption:'案例分类...',
+			caption:'行业分类...',
 			autowidth: true,
 			shrinkToFit: true,
 			rownumbers: true
@@ -74,7 +68,7 @@ jmei.category.prototype = {
 				buttons: [
 					{id: 'bar_add', iconCls: 'add', text: '新增', 
 						click: function(){
-							jmei.open('/spring/cms/case/category/edit', {opt:'add'});
+							jmei.open('/spring/cms/article/category/edit', {opt:'add'});
 						}},
 					{id: 'bar_modify', iconCls: 'modify', text: '编辑', 
 						click: function(){
@@ -82,7 +76,7 @@ jmei.category.prototype = {
 							if(rowno){
 								var rowmodel = grid.jqGrid('getRowData',rowno);
 								
-								jmei.open('/spring/cms/case/category/edit', {opt:'mod', oid:rowmodel.caseCategoryId});
+								jmei.open('/spring/cms/article/category/edit', {opt:'mod', oid:rowmodel.articleCategoryId});
 							}else{
 								layer.alert('请先选择要编辑的记录！', {icon: 6});
 							}
@@ -95,10 +89,10 @@ jmei.category.prototype = {
 								
 								$.ajax({
 									type: 'GET',
-									url: jmei.webpath + '/spring/cms/case/category/delete',
-									data: {opt:'mod', ids:rowmodel.caseCategoryId},
+									url: jmei.webpath + '/spring/cms/article/category/delete',
+									data: {opt:'mod', ids:rowmodel.articleCategoryId},
 									success: function(rs){
-										jmei.open('/spring/cms/case/category/list');
+										jmei.open('/spring/cms/article/category/list');
 									},
 									dataType: 'json',
 									contentType: 'application/json',
@@ -109,7 +103,7 @@ jmei.category.prototype = {
 						}},
 					{id: 'bar_search', iconCls: 'search', text: '查询', 
 						click: function(pr){
-							jmei.open('/spring/cms/case/category/list', {});
+							jmei.open('/spring/cms/article/category/list', {});
 						}}
 					]};
 		this.toolbar = $('#toolbar').toolbar(barOptions);
@@ -121,7 +115,7 @@ if('object' == (typeof module) && 'object' == (typeof module.exports)){
 	window.jmei = jmei;
 }
 $(function(){
-	var s = new jmei.category();
+	var s = new jmei.articleCategory();
 	s.initScriptAction();
 	$(window).resize(function(){
 		s.resizeGridDemosion();

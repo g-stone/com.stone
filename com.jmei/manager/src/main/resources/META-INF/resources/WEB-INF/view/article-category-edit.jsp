@@ -4,10 +4,10 @@
 <html>
 	<head>
 		<jsp:include page="/common/meta.jsp">
-			<jsp:param value="案例分类编辑" name="cms_page_title"/>
+			<jsp:param value="文章栏目管理" name="cms_page_title"/>
 		</jsp:include>
-		<link href="${ctpath}/static/ui/category/category-edit.css" rel="stylesheet"/>
-		<script src="${ctpath}/static/ui/category/category-edit.js" type="text/javascript"></script>
+		<link href="${ctpath}/static/ui/article/article-category-edit.css" rel="stylesheet"/>
+		<script src="${ctpath}/static/ui/article/article-category-edit.js" type="text/javascript"></script>
 		<script>
 			var curObj = ${jsonObj};
 		</script>
@@ -17,7 +17,7 @@
 			<h2>编辑----添加----修改</h2>
 			<table class="editpanel">
 				<tr>
-					<td>分类名：</td>
+					<td>文章分类名：</td>
 					<td><input data-role="edit" name="categoryName" type="text"/></td>
 				</tr>
 				<tr>

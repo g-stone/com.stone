@@ -4239,19 +4239,16 @@ _extend(KUploadButton, {
 			if (pre) {
 				str = pre.innerHTML;
 			} else {
-				console.log(doc);
-				console.log(doc.getElementsByTagName('Map')[0]);
-				console.log(doc.documentElement);
-				console.log(doc.body);
-				str = doc.body.innerHTML || '';
+				data = {error:doc.getElementsByTagName('error')[0].innerHTML,url:doc.getElementsByTagName('url')[0].innerHTML}
+				/**str = doc.body.innerHTML || '';*/
 			}
-			str = _unescape(str);
+			/**str = _unescape(str);
 			iframe[0].src = 'javascript:false';
 			try {
 				data = K.json(str);
 			} catch (e) {
 				self.options.afterError.call(self, '<!doctype html><html>' + doc.body.parentNode.innerHTML + '</html>');
-			}
+			}*/
 			if (data) {
 				self.options.afterUpload.call(self, data);
 			}

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 
 import com.stone.data.service.ICommonService;
+import com.stone.tools.ConverteUtils;
 import com.stone.tools.model.ResultObject;
 
 public class BasicController {
@@ -23,10 +24,11 @@ public class BasicController {
 		
 		if(StringUtils.hasText(opt)){
 			opt = opt.trim().toLowerCase();
-			List<String> opts = new ArrayList<String>();
 			if(opts.contains(opt)){
 				if("add".equals(opt)){
 					model.addAttribute("opt", "add");
+					model.addAttribute("obj", new Object());
+					model.addAttribute("jsonObj", "{}");
 				}
 				if("mod".equals(opt)){
 					model.addAttribute("opt", "mod");
@@ -34,6 +36,7 @@ public class BasicController {
 					String id = req.getParameter("oid");
 					T m = commonService.get(obj, id);
 					model.addAttribute("obj", m);
+					model.addAttribute("jsonObj", ConverteUtils.toJson(m));
 				}
 			}else{
 				model.addAttribute("opt", "add");
