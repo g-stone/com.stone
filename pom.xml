@@ -40,6 +40,8 @@
 		<p6spy.version>2.1.2</p6spy.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<druid.version>1.0.26</druid.version>
+		
+		<jetty.version>9.4.8.v20171121</jetty.version>
 	</properties>
 	
 	<modules>

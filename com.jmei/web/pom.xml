@@ -36,6 +36,11 @@
 			<artifactId>ui.kindeditor</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stone.framework</groupId>
+			<artifactId>com.stone.fileserver</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		
 		<!--
 		<dependency>

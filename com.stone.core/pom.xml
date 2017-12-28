@@ -14,5 +14,6 @@
 		<module>com.stone.tools</module>
 		<module>com.stone.data</module>
 		<module>com.stone.ui</module>
+		<module>com.stone.fileserver</module>
 	</modules>
 </project>
