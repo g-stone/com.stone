@@ -34,9 +34,7 @@ jmei.menuindex.prototype = {
 			success: function(data){
 				if(data.code == 1){
 					data.data.forEach(function(val, index, self){
-						/**console.log(val);*/
 						ele.forEach(function(el, ex, ed){
-							/**console.log(el);*/
 							$(el.container).append($('<' + el.ele + '><a href="' + jmei.webpath + '/spring/case/list?id=' + val.caseCategoryId + '" data-role="caseCategoryLoading" data-case-category="' + val.caseCategoryId + '">' + val.categoryName + '</a></' + el.ele + '>'))
 						});
 					});
