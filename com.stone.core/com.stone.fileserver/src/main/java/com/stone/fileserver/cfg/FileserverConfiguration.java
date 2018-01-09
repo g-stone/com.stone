@@ -1,5 +1,6 @@
 package com.stone.fileserver.cfg;
 
+import java.util.List;
 import java.util.Properties;
 
 public class FileserverConfiguration {
@@ -12,6 +13,13 @@ public class FileserverConfiguration {
 	
 	private String managerService;
 	private String uploadService;
+	
+	private List<String> categoryTypes;
+	private List<String> imageTypes;
+	private List<String> flashTypes;
+	private List<String> mediaTypes;
+	private List<String> filesTypes;
+	private Long fileMaxSize;
 	
 	private Properties properties;
 	private boolean status;
@@ -65,6 +73,42 @@ public class FileserverConfiguration {
 	public void setUploadService(String uploadService) {
 		this.uploadService = uploadService;
 	}
+	public List<String> getCategoryTypes() {
+		return categoryTypes;
+	}
+	public void setCategoryTypes(List<String> categoryTypes) {
+		this.categoryTypes = categoryTypes;
+	}
+	public List<String> getImageTypes() {
+		return imageTypes;
+	}
+	public void setImageTypes(List<String> imageTypes) {
+		this.imageTypes = imageTypes;
+	}
+	public List<String> getFlashTypes() {
+		return flashTypes;
+	}
+	public void setFlashTypes(List<String> flashTypes) {
+		this.flashTypes = flashTypes;
+	}
+	public List<String> getMediaTypes() {
+		return mediaTypes;
+	}
+	public void setMediaTypes(List<String> mediaTypes) {
+		this.mediaTypes = mediaTypes;
+	}
+	public List<String> getFilesTypes() {
+		return filesTypes;
+	}
+	public void setFilesTypes(List<String> filesTypes) {
+		this.filesTypes = filesTypes;
+	}
+	public Long getFileMaxSize() {
+		return fileMaxSize;
+	}
+	public void setFileMaxSize(Long fileMaxSize) {
+		this.fileMaxSize = fileMaxSize;
+	}
 	public Properties getProperties() {
 		return properties;
 	}
@@ -82,12 +126,5 @@ public class FileserverConfiguration {
 	}
 	public void setMsg(String msg) {
 		this.msg = msg;
-	}
-	
-	@Override
-	public String toString() {
-		return "FileserverConfiguration [port=" + port + ", rootPath=" + rootPath + ", maxSize=" + maxSize
-				+ ", minSize=" + minSize + ", idleTimeout=" + idleTimeout + ", threadGroup=" + threadGroup
-				+ ", properties=" + properties + ", status=" + status + ", msg=" + msg + "]";
 	}
 }

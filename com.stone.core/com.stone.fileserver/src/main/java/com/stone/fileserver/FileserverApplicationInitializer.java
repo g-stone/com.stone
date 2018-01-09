@@ -2,7 +2,9 @@ package com.stone.fileserver;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.servlet.ServletContext;
@@ -28,6 +30,7 @@ import org.springframework.web.WebApplicationInitializer;
 import com.stone.fileserver.cfg.FileserverConfiguration;
 import com.stone.fileserver.servlet.FileManagerServlet;
 import com.stone.fileserver.servlet.FileUploadServlet;
+import com.stone.tools.ConverteUtils;
 
 /**
  * @function 文件服务器初始化
@@ -144,6 +147,54 @@ public class FileserverApplicationInitializer implements WebApplicationInitializ
 				config.setUploadService(val);
 			}
 			
+			val = properties.getProperty("file.server.upload.category.type");
+			List<String> categoryTypes = new ArrayList<String>();
+			if(StringUtils.hasText(val)){
+				for(String item:val.split(",")){
+					categoryTypes.add(item.trim());
+				}
+			}
+			config.setCategoryTypes(categoryTypes);
+			
+			val = properties.getProperty("file.server.upload.image.type");
+			List<String> imageTypes = new ArrayList<String>();
+			if(StringUtils.hasText(val)){
+				for(String item:val.split(",")){
+					imageTypes.add(item.trim());
+				}
+			}
+			config.setImageTypes(imageTypes);
+			
+			String flashType = properties.getProperty("file.server.upload.flash.type");
+			List<String> flashTypes = new ArrayList<String>();
+			if(StringUtils.hasText(flashType)){
+				for(String item:flashType.split(",")){
+					flashTypes.add(item.trim());
+				}
+			}
+			config.setFlashTypes(flashTypes);
+			
+			String mediaType = properties.getProperty("file.server.upload.media.type");
+			List<String> mediaTypes = new ArrayList<String>();
+			if(StringUtils.hasText(mediaType)){
+				for(String item:mediaType.split(",")){
+					mediaTypes.add(item.trim());
+				}
+			}
+			config.setMediaTypes(mediaTypes);
+			
+			String filesType = properties.getProperty("file.server.upload.file.type");
+			List<String> filesTypes = new ArrayList<String>();
+			if(StringUtils.hasText(filesType)){
+				for(String item:filesType.split(",")){
+					filesTypes.add(item.trim());
+				}
+			}
+			config.setFilesTypes(filesTypes);
+			
+			String maxsize = properties.getProperty("file.server.upload.max.size", DEFAULT_MAX_SIZE);
+			config.setFileMaxSize(Long.parseLong(maxsize.replaceAll("[^0-9]", "")));
+			
 			config.setProperties(properties);
 			config.setStatus(true);
 		} catch(Exception e) {
@@ -160,17 +211,18 @@ public class FileserverApplicationInitializer implements WebApplicationInitializ
 			}
 		}
 		
-		logger.info(config);
+		logger.info(ConverteUtils.toJson(config));
 	}
 	
 	private static Logger logger = Logger.getLogger(FileserverApplicationInitializer.class);
 	private static String configFile = "fileserver.properties";
-	private static FileserverConfiguration config;
+	public static FileserverConfiguration config;
 	
-	private final static String MAX_POOL_SIZE = "600";
-	private final static String MIN_POOL_SIZE = "15";
-	private final static String THREAD_IDLE_TIMEOUT = "60";
-	private final static String THREAD_GROUP = "file@server";
-	private final static String MANAGER_SERVICE = "/manager";
-	private final static String UPLOAD_SERVICE = "/upload";
+	public final static String MAX_POOL_SIZE = "600";
+	public final static String MIN_POOL_SIZE = "15";
+	public final static String THREAD_IDLE_TIMEOUT = "60";
+	public final static String THREAD_GROUP = "file@server";
+	public final static String MANAGER_SERVICE = "/manager";
+	public final static String UPLOAD_SERVICE = "/upload";
+	public final static String DEFAULT_MAX_SIZE = "1000000";
 }

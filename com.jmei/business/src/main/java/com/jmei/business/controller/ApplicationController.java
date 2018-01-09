@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -75,7 +76,7 @@ public class ApplicationController {
 	 * @return
 	 */
 	@RequestMapping(value = "/case/detail")
-	public ModelAndView detail(Model model, String caseId){
+	public ModelAndView detail(Model model, @RequestParam("caseId") String caseId){
 		ModelAndView view = new ModelAndView();
 		
 		Case cases = siteIndexService.get(Case.class, caseId);
@@ -96,7 +97,7 @@ public class ApplicationController {
 	 * @return
 	 */
 	@RequestMapping(value = "/case/list")
-	public ModelAndView list(Model model, String id){
+	public ModelAndView list(Model model, @RequestParam("id") String id){
 		ModelAndView view = new ModelAndView();
 		
 		Map<String, Object> parameter = new HashMap<String, Object>();
@@ -118,7 +119,7 @@ public class ApplicationController {
 	 * @return
 	 */
 	@RequestMapping(value = {"/brief", "/service", "/trends", "/recruit", "/contact"})
-	public ModelAndView siteRelative(Model model, String id, Integer vi){
+	public ModelAndView siteRelative(Model model, @RequestParam("id") String id, @RequestParam("vi") Integer vi){
 		ModelAndView view = new ModelAndView();
 		
 		ArticleCategory articleCategory = siteIndexService.get(ArticleCategory.class, id);

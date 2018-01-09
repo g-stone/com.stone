@@ -96,7 +96,7 @@
 			<artifactId>druid</artifactId>
 			<version>${druid.version}</version>
 		</dependency>
-		<!-- p6spy -->
+		<!-- p6spy 
 		<dependency>
 			<groupId>p6spy</groupId>
 			<artifactId>p6spy</artifactId>
@@ -107,5 +107,6 @@
 			<artifactId>irontracksql</artifactId>
 			<version>1.0</version>
 		</dependency>
+		-->
 	</dependencies>
 </project>

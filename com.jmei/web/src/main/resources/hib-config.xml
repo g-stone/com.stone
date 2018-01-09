@@ -43,7 +43,7 @@
 		</property>
 	</bean>
 	
-	<bean id="dataSourceRaw" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 		<property name="user" value="${jdbc.username}" />
@@ -73,9 +73,9 @@
 		<property name="debugUnreturnedConnectionStackTraces" value="${jdbc.debugUnreturnedConnectionStackTraces}"/>
 	</bean>
 	
-	<bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource">
+	<!--bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource">
 		<constructor-arg ref="dataSourceRaw" />
-	</bean>
+	</bean-->
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
