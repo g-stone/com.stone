@@ -29,9 +29,11 @@
 	<task:executor id="executor" pool-size="10"/>
 	<!--开启注解调度支持 @Async @Scheduled -->
 	<task:annotation-driven executor="executor" scheduler="scheduler" proxy-target-class="true"/>
+	<!--
 	<task:scheduled-tasks scheduler="scheduler">
 		<task:scheduled ref="monitorScheduler" method="monitor" cron="0 0/2 * * * ?"/>
 	</task:scheduled-tasks>
+	-->
 	
 	<bean class="com.stone.tools.property.StonePropertyPlaceholderConfigurer">
 		<property name="locations">
