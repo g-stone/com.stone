@@ -107,13 +107,7 @@ public class SchedulerExecutorContext implements InitializingBean{
 			logger.info("自动任务的线程池资源清理完成.");
 		}
 	}
-	
-	private static final Logger logger = LoggerFactory.getLogger(SchedulerExecutorContext.class);
-	private static final Map<String, IdCronTask> tasks = new HashMap<String, IdCronTask>(12);
-	private static final Map<String, ScheduledFuture<?>> scheduled_future = new HashMap<String, ScheduledFuture<?>>(16);
-	private final static int POOL_SIZE = 64;
-	private final ConcurrentTaskScheduler scheduler = new ConcurrentTaskScheduler(Executors.newScheduledThreadPool(POOL_SIZE));
-	
+
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if(logger.isDebugEnabled()){
@@ -128,4 +122,10 @@ public class SchedulerExecutorContext implements InitializingBean{
 			new Thread(new IdTaskTest(task)).start();
 		}
 	}
+	
+	private static final Logger logger = LoggerFactory.getLogger(SchedulerExecutorContext.class);
+	private static final Map<String, IdCronTask> tasks = new HashMap<String, IdCronTask>(12);
+	private static final Map<String, ScheduledFuture<?>> scheduled_future = new HashMap<String, ScheduledFuture<?>>(16);
+	private final static int POOL_SIZE = 64;
+	private final ConcurrentTaskScheduler scheduler = new ConcurrentTaskScheduler(Executors.newScheduledThreadPool(POOL_SIZE));
 }
