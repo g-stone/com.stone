@@ -7,7 +7,7 @@
 		<relativePath>../../pom.xml</relativePath>
 		<version>1.0</version>
 	</parent>
-	<artifactId>com.jmei.business</artifactId>
+	<artifactId>com.stone.websocket</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -22,27 +22,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.stone.framework</groupId>
-			<artifactId>com.jmei.models</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
 			<artifactId>com.stone.tools</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
-			<artifactId>com.stone.data</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
-			<artifactId>com.stone.websocket</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone.framework</groupId>
-			<artifactId>ui.common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

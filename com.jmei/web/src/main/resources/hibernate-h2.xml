@@ -50,7 +50,6 @@
 		<property name="url" value="${h2.jdbc.url}" />
 		<property name="username" value="${h2.jdbc.username}" />
 		<property name="password" value="${h2.jdbc.password}" />
-
 		<!-- 初始化连接大小 -->
 		<property name="initialSize" value="${h2.jdbc.initialSize}" />
 		<!-- 连接池最大使用连接数量 -->

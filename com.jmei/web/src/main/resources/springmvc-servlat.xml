@@ -14,9 +14,6 @@
 	<!-- 对web包中的所有类进行扫描,以完成Bean创建和自动依赖注入的功能 -->
 	<import resource="classpath*:spring-mvc.xml"/>
 	
-	<!-- spring mvc对静态资源的访问 -->
-	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/,file:${config.upload.path}/" />
-	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/spring/**"/>
@@ -33,10 +30,12 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
+	<!-- spring mvc对静态资源的访问 -->
+	<mvc:resources mapping="/static/**" location="/static/,classpath:/META-INF/resources/static/,file:///d:/jmei/" />
+	
 	<!-- 启动Spring MVC 的注解功能,完成请求和注解POJO的映射 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-	<!--
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	<!--
 		<property name="argumentResolvers">
 			<list>
 				<bean class="com.senyint.phpatient.phpayment.main.resolver.method.PaymentRequestParamMapMethodArgumentResolver"/>
@@ -44,8 +43,9 @@
 				<bean class="com.senyint.phpatient.phpayment.main.resolver.method.PaymentPathVariableMethodArgumentResoler"/>
 			</list>
 		</property>
-	</bean>
 	-->
+	</bean>
+	
 	<!-- 对模型视图名称的解析,即在模型视图名称添加前后缀 -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

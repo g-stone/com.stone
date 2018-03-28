@@ -15,5 +15,6 @@
 		<module>com.stone.data</module>
 		<module>com.stone.ui</module>
 		<module>com.stone.fileserver</module>
+		<module>com.stone.websocket</module>
 	</modules>
 </project>

@@ -23,11 +23,11 @@
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<jsp-api.version>2.3.2-b02</jsp-api.version>
 		<jstl.version>1.2</jstl.version>
-		<spring.version>4.3.11.RELEASE</spring.version>
+		<spring.version>5.0.4.RELEASE</spring.version>
 		<aspectj.version>1.8.9</aspectj.version>
 		<cglib.version>3.1</cglib.version>
 		<asm.version>3.3.1</asm.version>
-		<jackson.version>2.6.3</jackson.version>
+		<jackson.version>2.9.4</jackson.version>
 		<org.slf4j.version>1.7.7</org.slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<httpcomponents.version>4.3.5</httpcomponents.version>
@@ -35,7 +35,7 @@
 		<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
 		<jdbc.driver.version>10.2.0.4.0</jdbc.driver.version>
-		<hibernate.version>5.2.11.Final</hibernate.version>
+		<hibernate.version>5.2.15.Final</hibernate.version>
 		<hibernate.jpa.2.1.api.version>1.0.0.Final</hibernate.jpa.2.1.api.version>
 		<p6spy.version>2.1.2</p6spy.version>
 		<c3p0.version>0.9.5.2</c3p0.version>

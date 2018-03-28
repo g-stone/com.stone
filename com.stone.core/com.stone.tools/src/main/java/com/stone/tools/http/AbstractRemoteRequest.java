@@ -104,7 +104,7 @@ public abstract class AbstractRemoteRequest implements RemoteRequest{
 						break;
 					case "xml":
 						httpPost.addHeader("Content-Type", "text/xml");
-						content = ConverteUtils.toXmlString("", requestParameter[4]);
+						content = ConverteUtils.toXmlString("xml", requestParameter[4]);
 						break;
 					default:
 						httpPost.addHeader("Content-Type", "application/json");
